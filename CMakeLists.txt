@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.10)
+project(IMUProject)
+set(CMAKE_CXX_STANDARD 17)
+add_executable(imu_app main.cpp IMUPublisher.cpp)
+target_link_libraries(imu_app gpiod pthread)
