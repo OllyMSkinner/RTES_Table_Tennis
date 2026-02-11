@@ -1,20 +1,26 @@
 #include "IMUPublisher.h"
-#include <fcntl.h>
-#include <sys/ioctl.h>
-#include <linux/i2c-dev.h>
-#include <unistd.h>
-#include <chrono>
-#include <gpiod.hpp> // Required: sudo apt-get install libgpiod-dev
+#include <fcntl.h>      // For open()
+#include <sys/ioctl.h>  // For ioctl()
+#include <linux/i2c-dev.h> // For I2C_SLAVE
+#include <unistd.h>     // For close()
+#include <stdexcept>    // For runtime_error
+#include <chrono>       // For milliseconds
+#include <gpiod.hpp>    // Required: sudo apt-get install libgpiod-dev
 
-IMUPublisher::IMUPublisher(int pinNum, int i2cAddr) : pin(pinNum), addr(i2cAddr), running(false) {
-    // Open the I2C bus #1 [6]
+// The constructor initializes the hardware communication [4]
+IMUPublisher::IMUPublisher(int pinNum, int i2cAddr) 
+    : pin(pinNum), addr(i2cAddr), running(false) {
+    
+    // 1. Open the primary I2C bus on the Raspberry Pi [4]
     fd = open("/dev/i2c-1", O_RDWR);
     if (fd < 0) {
-        throw std::runtime_error("Failed to open I2C bus");
+        throw std::runtime_error("Failed to open the I2C bus.");
     }
-    // Set the I2C slave address [7]
+
+    // 2. Set the I2C Slave Address for the ICM-20948 [5]
     if (ioctl(fd, I2C_SLAVE, addr) < 0) {
-        throw std::runtime_error("Failed to connect to IMU via I2C");
+        close(fd);
+        throw std::runtime_error("Failed to connect to the IMU.");
     }
 }
 
@@ -38,7 +44,7 @@ void IMUPublisher::stop() {
 }
 
 void IMUPublisher::worker() {
-    // 1. Configure the GPIO chip and line using modern libgpiod (v2 style) [5, 8]
+    // 1. Configure the GPIO chip and line using modern libgpiod (v2 style) [6, 7]
     auto chip = std::make_shared<gpiod::chip>("/dev/gpiochip0");
     auto line_cfg = gpiod::line_config();
     line_cfg.add_line_settings(pin, gpiod::line_settings()
@@ -50,27 +56,28 @@ void IMUPublisher::worker() {
     auto request = request_builder.do_request();
 
     while (running) {
-        // 2. BLOCKING I/O: Thread sleeps until the IMU DRDY pin fires [4, 9]
+        // 2. REMOVING POLLING: Block the thread until a GPIO edge occurs [1]
         if (request.wait_edge_events(std::chrono::milliseconds(100))) {
-            // Read events to clear the buffer
+            // Clear the edge event buffer [1]
             gpiod::edge_event_buffer event_buf;
             request.read_edge_events(event_buf, 1);
 
-            // 3. I2C Read Logic: Write register address, then read 6 bytes [7, 10]
-            uint8_t reg = 0x3B; // Common starting register for Accel X_High
-            write(fd, &reg, 1);
-            
-            uint8_t buffer[11]; // We need 6 bytes for X, Y, and Z (2 bytes each)
+            // 3. Hardware specific read sequence [5, 8]
+            uint8_t reg = 0x2D; // ICM-20948 Accelerometer X High register
+            if (write(fd, &reg, 1) != 1) continue;
+
+            // Fix: We need 6 bytes for X, Y, Z (2 bytes each) [9]
+            uint8_t buffer[10]; 
             if (read(fd, buffer, 6) != 6) continue;
 
-            // 4. Reconstruction: Combine High and Low bytes into 16-bit integers
-            // Indexing fix: buffer[12]=X, buffer[13, 14]=Y, buffer[15, 16]=Z
+            // 4. Data Reconstruction [9]
+            // High byte is transmitted first. Correct indices: X(0,1), Y(2,3), Z(4,5)
             IMUSample s;
-            s.x = (int16_t)((buffer << 8) | buffer[12]) * 0.0006f;
-            s.y = (int16_t)((buffer[13] << 8) | buffer[14]) * 0.0006f;
-            s.z = (int16_t)((buffer[15] << 8) | buffer[16]) * 0.0006f;
+            s.x = (int16_t)((buffer << 8) | buffer[11]) * 0.0006f; 
+            s.y = (int16_t)((buffer[12] << 8) | buffer[13]) * 0.0006f;
+            s.z = (int16_t)((buffer[14] << 8) | buffer[15]) * 0.0006f;
 
-            // 5. Trigger Callback: Pass by reference for efficiency [17, 18]
+            // 5. Trigger the callback by reference for efficiency [9, 16]
             if (callback) {
                 callback->hasSample(s);
             }
