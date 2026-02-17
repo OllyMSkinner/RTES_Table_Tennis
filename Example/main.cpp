@@ -5,6 +5,7 @@
 #include <csignal>
 
 #include "icm20948_i2c.hpp"
+#include "Positiondetector.h"   // <-- added
 
 static volatile std::sig_atomic_t g_run = 1;
 static void on_sigint(int) { g_run = 0; }
@@ -33,6 +34,9 @@ int main(int argc, char** argv)
 
     std::cout << std::fixed << std::setprecision(3);
 
+    // --- Position detector instance (added) ---
+    PositionDetectorName::PositionDetector positionDetector;
+
     while (g_run) {
         const bool ok_ag = imu.read_accel_gyro();
         const bool ok_m  = imu.read_magn();   // if magnetometer isn’t enabled, this may return false
@@ -43,6 +47,14 @@ int main(int argc, char** argv)
                 << imu.accel[0] << ", " << imu.accel[1] << ", " << imu.accel[2] << "]  "
                 << "GYR ["
                 << imu.gyro[0]  << ", " << imu.gyro[1]  << ", " << imu.gyro[2]  << "]  ";
+
+            // --- feed accel into PositionDetector (added) ---
+            positionDetector.CheckPosition(
+                imu.accel[0],
+                imu.accel[1],
+                imu.accel[2]
+            );
+
         } else {
             std::cout << "ACC/GYR [read failed]  ";
         }
