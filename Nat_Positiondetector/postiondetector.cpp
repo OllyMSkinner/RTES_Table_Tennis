@@ -4,81 +4,86 @@
 #include <cmath>
 #include <thread>
 #include <chrono>
+#include <atomic>
+
+#include "icm20948_i2c.hpp"   // <-- uses your ICM20948 driver
 
 // Number of stable samples required for upright confirmation
-int stabilitySamplesRequired = 20;
+static int stabilitySamplesRequired = 20;
 
 namespace PositionDetectorName {
 
-    void PositionDetector::CheckPosition(float X, float Y, float Z){
-
-        // Upright detection using gravity
-        bool isUpright =
+    // Existing: consumes accel values already provided
+    void PositionDetector::CheckPosition(float X, float Y, float Z)
+    {
+        // Upright detection using gravity (units assumed: m/s^2)
+        const bool isUpright =
             (std::fabs(X) < 1.0f) &&
             (std::fabs(Y) < 1.0f) &&
             (Z > 8.5f);
 
-        if (isUpright){
-
+        if (isUpright) {
             Counter++;
 
-            if (Counter >= stabilitySamplesRequired && !UprightConfirmed){
-
+            if (Counter >= stabilitySamplesRequired && !UprightConfirmed) {
                 UprightConfirmed = true;
 
-                if (callback){
+                // Print once per upright episode
+                std::cout << "[EVENT] Upright position detected!" << std::endl;
+
+                // Fire callback once per upright episode
+                if (callback) {
                     callback->OnUprightDetected();
                 }
             }
-
         } else {
-
             Counter = 0;
             UprightConfirmed = false;
         }
     }
 
-} // namespace PositionDetectorName
+    // NEW: read IMU internally and feed accel into CheckPosition()
+    //
+    // This mirrors your main.cpp loop, but lives inside PositionDetector.
+    // You will need the matching declaration in Positiondetector.h (see below).
+    bool PositionDetector::RunFromIMU(unsigned bus,
+                                     unsigned addr,
+                                     std::atomic_bool& runFlag,
+                                     int samplePeriodMs)
+    {
+        icm20948::ICM20948_I2C imu(bus, addr);
 
-
-// ===== TESTING MAIN =====
-#ifdef POSITION_DETECTOR_TEST
-
-using namespace PositionDetectorName;
-
-int main() {
-
-    PositionDetector detector;
-
-    // Simple callback that prints event
-    struct MyCallback : PositionDetector::Callback {
-        void OnUprightDetected() override {
-            std::cout << "[EVENT] Upright position detected!" << std::endl;
-        }
-    } callback;
-
-    detector.RegisterCallback(&callback);
-
-    std::cout << "Starting test loop (simulated IMU values)..." << std::endl;
-
-    // Simulated IMU loop
-    while (true) {
-
-        // ===== Replace with real IMU readings later =====
-        float X = 0.1f;  // Simulated X
-        float Y = -0.2f; // Simulated Y
-        float Z = 9.1f;  // Simulated Z (gravity)
-
-        detector.CheckPosition(X, Y, Z);
-
-        if (detector.IsUpright()) {
-            std::cout << "Upright confirmed!" << std::endl;
+        if (!imu.init()) {
+            std::cerr << "ICM20948 init() failed (bus=" << bus << ", addr=0x"
+                      << std::hex << addr << std::dec << ")\n";
+            return false;
         }
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(10)); // 100 Hz sample rate
+        // Optional: align stability sample count with loop rate
+        // (keeps ~200ms confirmation if you change samplePeriodMs)
+        // 200ms / samplePeriodMs = required samples
+        const int targetConfirmMs = 200;
+        stabilitySamplesRequired = std::max(1, targetConfirmMs / std::max(1, samplePeriodMs));
+
+        std::cout << "PositionDetector streaming IMU (Ctrl+C handled by caller)\n";
+        std::cout << "Upright confirm: " << stabilitySamplesRequired
+                  << " samples (~" << (stabilitySamplesRequired * samplePeriodMs) << " ms)\n";
+
+        while (runFlag.load()) {
+            const bool ok = imu.read_accel_gyro();
+            if (ok) {
+                // accel[] is in m/s^2 per your main.cpp printout
+                CheckPosition(imu.accel[0], imu.accel[1], imu.accel[2]);
+            } else {
+                // If reads fail, treat as not upright (forces reset)
+                Counter = 0;
+                UprightConfirmed = false;
+            }
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(samplePeriodMs));
+        }
+
+        return true;
     }
 
-    return 0;
-}
-
-#endif
+} // namespace PositionDetectorName
