@@ -5,7 +5,7 @@
 #include <csignal>
 
 #include "icm20948_i2c.hpp"
-#include "Positiondetector.h"   // <-- added
+#include "positiondetector.h"   // <-- added
 
 static volatile std::sig_atomic_t g_run = 1;
 static void on_sigint(int) { g_run = 0; }
