@@ -1,25 +1,41 @@
-cmake_minimum_required(VERSION 3.16)
-project(icm20948_i2c_coords LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.13)
+project(imu_coords LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-find_package(PkgConfig REQUIRED)
-
-pkg_check_modules(MRAA REQUIRED mraa)
-include_directories(${MRAA_INCLUDE_DIRS})
-
-find_package(yaml-cpp REQUIRED)
-
-add_executable(imu_coords
+# ---- Sources ----
+set(SOURCES
     main.cpp
     icm20948_i2c.cpp
     icm20948_utils.cpp
 )
 
-target_include_directories(imu_coords PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+# PositionDetector source file:
+# Prefer correct spelling "positiondetector.cpp", but fall back to the typo "postiondetector.cpp"
+if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/positiondetector.cpp")
+    list(APPEND SOURCES positiondetector.cpp)
+elseif (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Positiondetector.cpp")
+    list(APPEND SOURCES Positiondetector.cpp)
+elseif (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/postiondetector.cpp")
+    message(WARNING "Using 'postiondetector.cpp' (typo filename). Consider renaming to 'positiondetector.cpp'.")
+    list(APPEND SOURCES postiondetector.cpp)
+else()
+    message(FATAL_ERROR "Could not find position detector .cpp file. Expected positiondetector.cpp or postiondetector.cpp")
+endif()
 
-target_link_libraries(imu_coords PRIVATE
-    ${MRAA_LIBRARIES}
-    yaml-cpp
+add_executable(imu_coords ${SOURCES})
+
+# Headers are in the repo root (and possibly Nat_Positiondetector if you include from there)
+target_include_directories(imu_coords PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/Nat_Positiondetector
 )
+
+# Needed for std::thread on Linux
+find_package(Threads REQUIRED)
+target_link_libraries(imu_coords PRIVATE Threads::Threads)
+
+# Helpful warnings
+target_compile_options(imu_coords PRIVATE -Wall -Wextra -Wpedantic)
