@@ -1,0 +1,2 @@
+/usr/bin/ar qc libNat_Positiondetector.a CMakeFiles/Nat_Positiondetector.dir/Nat_Positiondetector/positiondetector.cpp.o
+/usr/bin/ranlib libNat_Positiondetector.a
