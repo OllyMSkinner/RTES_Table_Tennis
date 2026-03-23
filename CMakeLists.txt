@@ -1,50 +1,21 @@
 cmake_minimum_required(VERSION 3.10)
-project(RTES_Table_Tennis)
+project(rtes_main_project)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# --- IMU library ---
-add_library(ICM20948
-    Example/icm20948_i2c.cpp
-    Example/icm20948_utils.cpp
-)
-target_include_directories(ICM20948 PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/Example
+# Position Detector
+add_library(position_detector
+    Starting_position/positiondetector.cpp
 )
 
-# --- Position detector library ---
-add_library(Nat_Positiondetector
-    Nat_Positiondetector/positiondetector.cpp
-)
-target_include_directories(Nat_Positiondetector PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/Nat_Positiondetector
-)
-target_link_libraries(Nat_Positiondetector PUBLIC ICM20948)
-
-# --- Main executable ---
-add_executable(rtes_main
-    Example/main.cpp
-)
-#add_executable(pi3_sender
-   # Example/pi3_sender.cpp
-   # Example/icm20948_i2c.cpp
-#)
-#target_include_directories(pi3_sender PRIVATE Example)
-#target_link_libraries(pi3_sender PRIVATE pthread)
-
-# main needs to find positiondetector.h
-target_include_directories(rtes_main PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/Nat_Positiondetector
-    ${CMAKE_CURRENT_SOURCE_DIR}/Example
+target_include_directories(position_detector PUBLIC
+    Starting_position
 )
 
-# Find and link external deps used by the IMU code
-find_package(yaml-cpp REQUIRED)
-find_library(MRAA_LIB mraa REQUIRED)
+# Executable
+add_executable(rtes_main main.cpp)
 
 target_link_libraries(rtes_main
-    Nat_Positiondetector
-    ${MRAA_LIB}
-    yaml-cpp
+    position_detector
+    pthread
 )

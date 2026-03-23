@@ -1,2 +1,0 @@
-/usr/bin/ar qc libICM20948.a CMakeFiles/ICM20948.dir/Example/icm20948_i2c.cpp.o CMakeFiles/ICM20948.dir/Example/icm20948_utils.cpp.o
-/usr/bin/ranlib libICM20948.a

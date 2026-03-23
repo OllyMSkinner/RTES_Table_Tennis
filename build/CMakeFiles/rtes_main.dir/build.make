@@ -72,33 +72,31 @@ include CMakeFiles/rtes_main.dir/flags.make
 CMakeFiles/rtes_main.dir/codegen:
 .PHONY : CMakeFiles/rtes_main.dir/codegen
 
-CMakeFiles/rtes_main.dir/Example/main.cpp.o: CMakeFiles/rtes_main.dir/flags.make
-CMakeFiles/rtes_main.dir/Example/main.cpp.o: /home/group5/NatTrial/RTES_Table_Tennis/Example/main.cpp
-CMakeFiles/rtes_main.dir/Example/main.cpp.o: CMakeFiles/rtes_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/rtes_main.dir/Example/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/rtes_main.dir/Example/main.cpp.o -MF CMakeFiles/rtes_main.dir/Example/main.cpp.o.d -o CMakeFiles/rtes_main.dir/Example/main.cpp.o -c /home/group5/NatTrial/RTES_Table_Tennis/Example/main.cpp
+CMakeFiles/rtes_main.dir/main.cpp.o: CMakeFiles/rtes_main.dir/flags.make
+CMakeFiles/rtes_main.dir/main.cpp.o: /home/group5/NatTrial/RTES_Table_Tennis/main.cpp
+CMakeFiles/rtes_main.dir/main.cpp.o: CMakeFiles/rtes_main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/rtes_main.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/rtes_main.dir/main.cpp.o -MF CMakeFiles/rtes_main.dir/main.cpp.o.d -o CMakeFiles/rtes_main.dir/main.cpp.o -c /home/group5/NatTrial/RTES_Table_Tennis/main.cpp
 
-CMakeFiles/rtes_main.dir/Example/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/rtes_main.dir/Example/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/group5/NatTrial/RTES_Table_Tennis/Example/main.cpp > CMakeFiles/rtes_main.dir/Example/main.cpp.i
+CMakeFiles/rtes_main.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/rtes_main.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/group5/NatTrial/RTES_Table_Tennis/main.cpp > CMakeFiles/rtes_main.dir/main.cpp.i
 
-CMakeFiles/rtes_main.dir/Example/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rtes_main.dir/Example/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/group5/NatTrial/RTES_Table_Tennis/Example/main.cpp -o CMakeFiles/rtes_main.dir/Example/main.cpp.s
+CMakeFiles/rtes_main.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rtes_main.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/group5/NatTrial/RTES_Table_Tennis/main.cpp -o CMakeFiles/rtes_main.dir/main.cpp.s
 
 # Object files for target rtes_main
 rtes_main_OBJECTS = \
-"CMakeFiles/rtes_main.dir/Example/main.cpp.o"
+"CMakeFiles/rtes_main.dir/main.cpp.o"
 
 # External object files for target rtes_main
 rtes_main_EXTERNAL_OBJECTS =
 
-rtes_main: CMakeFiles/rtes_main.dir/Example/main.cpp.o
+rtes_main: CMakeFiles/rtes_main.dir/main.cpp.o
 rtes_main: CMakeFiles/rtes_main.dir/build.make
 rtes_main: CMakeFiles/rtes_main.dir/compiler_depend.ts
-rtes_main: libNat_Positiondetector.a
-rtes_main: /usr/local/lib/libmraa.so
-rtes_main: libICM20948.a
+rtes_main: libposition_detector.a
 rtes_main: CMakeFiles/rtes_main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable rtes_main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rtes_main.dir/link.txt --verbose=$(VERBOSE)

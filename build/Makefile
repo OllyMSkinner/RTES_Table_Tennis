@@ -117,30 +117,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ICM20948
+# Target rules for targets named position_detector
 
 # Build rule for target.
-ICM20948: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ICM20948
-.PHONY : ICM20948
+position_detector: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 position_detector
+.PHONY : position_detector
 
 # fast build rule for target.
-ICM20948/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/build
-.PHONY : ICM20948/fast
-
-#=============================================================================
-# Target rules for targets named Nat_Positiondetector
-
-# Build rule for target.
-Nat_Positiondetector: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Nat_Positiondetector
-.PHONY : Nat_Positiondetector
-
-# fast build rule for target.
-Nat_Positiondetector/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Nat_Positiondetector.dir/build.make CMakeFiles/Nat_Positiondetector.dir/build
-.PHONY : Nat_Positiondetector/fast
+position_detector/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/position_detector.dir/build.make CMakeFiles/position_detector.dir/build
+.PHONY : position_detector/fast
 
 #=============================================================================
 # Target rules for targets named rtes_main
@@ -155,101 +142,53 @@ rtes_main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/build
 .PHONY : rtes_main/fast
 
-Example/icm20948_i2c.o: Example/icm20948_i2c.cpp.o
-.PHONY : Example/icm20948_i2c.o
+Starting_position/positiondetector.o: Starting_position/positiondetector.cpp.o
+.PHONY : Starting_position/positiondetector.o
 
 # target to build an object file
-Example/icm20948_i2c.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/Example/icm20948_i2c.cpp.o
-.PHONY : Example/icm20948_i2c.cpp.o
+Starting_position/positiondetector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/position_detector.dir/build.make CMakeFiles/position_detector.dir/Starting_position/positiondetector.cpp.o
+.PHONY : Starting_position/positiondetector.cpp.o
 
-Example/icm20948_i2c.i: Example/icm20948_i2c.cpp.i
-.PHONY : Example/icm20948_i2c.i
+Starting_position/positiondetector.i: Starting_position/positiondetector.cpp.i
+.PHONY : Starting_position/positiondetector.i
 
 # target to preprocess a source file
-Example/icm20948_i2c.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/Example/icm20948_i2c.cpp.i
-.PHONY : Example/icm20948_i2c.cpp.i
+Starting_position/positiondetector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/position_detector.dir/build.make CMakeFiles/position_detector.dir/Starting_position/positiondetector.cpp.i
+.PHONY : Starting_position/positiondetector.cpp.i
 
-Example/icm20948_i2c.s: Example/icm20948_i2c.cpp.s
-.PHONY : Example/icm20948_i2c.s
+Starting_position/positiondetector.s: Starting_position/positiondetector.cpp.s
+.PHONY : Starting_position/positiondetector.s
 
 # target to generate assembly for a file
-Example/icm20948_i2c.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/Example/icm20948_i2c.cpp.s
-.PHONY : Example/icm20948_i2c.cpp.s
+Starting_position/positiondetector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/position_detector.dir/build.make CMakeFiles/position_detector.dir/Starting_position/positiondetector.cpp.s
+.PHONY : Starting_position/positiondetector.cpp.s
 
-Example/icm20948_utils.o: Example/icm20948_utils.cpp.o
-.PHONY : Example/icm20948_utils.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-Example/icm20948_utils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/Example/icm20948_utils.cpp.o
-.PHONY : Example/icm20948_utils.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-Example/icm20948_utils.i: Example/icm20948_utils.cpp.i
-.PHONY : Example/icm20948_utils.i
-
-# target to preprocess a source file
-Example/icm20948_utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/Example/icm20948_utils.cpp.i
-.PHONY : Example/icm20948_utils.cpp.i
-
-Example/icm20948_utils.s: Example/icm20948_utils.cpp.s
-.PHONY : Example/icm20948_utils.s
-
-# target to generate assembly for a file
-Example/icm20948_utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/Example/icm20948_utils.cpp.s
-.PHONY : Example/icm20948_utils.cpp.s
-
-Example/main.o: Example/main.cpp.o
-.PHONY : Example/main.o
-
-# target to build an object file
-Example/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/Example/main.cpp.o
-.PHONY : Example/main.cpp.o
-
-Example/main.i: Example/main.cpp.i
-.PHONY : Example/main.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-Example/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/Example/main.cpp.i
-.PHONY : Example/main.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-Example/main.s: Example/main.cpp.s
-.PHONY : Example/main.s
-
-# target to generate assembly for a file
-Example/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/Example/main.cpp.s
-.PHONY : Example/main.cpp.s
-
-Nat_Positiondetector/positiondetector.o: Nat_Positiondetector/positiondetector.cpp.o
-.PHONY : Nat_Positiondetector/positiondetector.o
-
-# target to build an object file
-Nat_Positiondetector/positiondetector.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Nat_Positiondetector.dir/build.make CMakeFiles/Nat_Positiondetector.dir/Nat_Positiondetector/positiondetector.cpp.o
-.PHONY : Nat_Positiondetector/positiondetector.cpp.o
-
-Nat_Positiondetector/positiondetector.i: Nat_Positiondetector/positiondetector.cpp.i
-.PHONY : Nat_Positiondetector/positiondetector.i
-
-# target to preprocess a source file
-Nat_Positiondetector/positiondetector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Nat_Positiondetector.dir/build.make CMakeFiles/Nat_Positiondetector.dir/Nat_Positiondetector/positiondetector.cpp.i
-.PHONY : Nat_Positiondetector/positiondetector.cpp.i
-
-Nat_Positiondetector/positiondetector.s: Nat_Positiondetector/positiondetector.cpp.s
-.PHONY : Nat_Positiondetector/positiondetector.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-Nat_Positiondetector/positiondetector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Nat_Positiondetector.dir/build.make CMakeFiles/Nat_Positiondetector.dir/Nat_Positiondetector/positiondetector.cpp.s
-.PHONY : Nat_Positiondetector/positiondetector.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -259,21 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ICM20948"
-	@echo "... Nat_Positiondetector"
+	@echo "... position_detector"
 	@echo "... rtes_main"
-	@echo "... Example/icm20948_i2c.o"
-	@echo "... Example/icm20948_i2c.i"
-	@echo "... Example/icm20948_i2c.s"
-	@echo "... Example/icm20948_utils.o"
-	@echo "... Example/icm20948_utils.i"
-	@echo "... Example/icm20948_utils.s"
-	@echo "... Example/main.o"
-	@echo "... Example/main.i"
-	@echo "... Example/main.s"
-	@echo "... Nat_Positiondetector/positiondetector.o"
-	@echo "... Nat_Positiondetector/positiondetector.i"
-	@echo "... Nat_Positiondetector/positiondetector.s"
+	@echo "... Starting_position/positiondetector.o"
+	@echo "... Starting_position/positiondetector.i"
+	@echo "... Starting_position/positiondetector.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

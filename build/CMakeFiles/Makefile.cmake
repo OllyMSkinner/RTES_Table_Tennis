@@ -11,10 +11,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.31.6/CMakeCCompiler.cmake"
   "CMakeFiles/3.31.6/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.31.6/CMakeSystem.cmake"
-  "/usr/lib/aarch64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config-version.cmake"
-  "/usr/lib/aarch64-linux-gnu/cmake/yaml-cpp/yaml-cpp-config.cmake"
-  "/usr/lib/aarch64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets-none.cmake"
-  "/usr/lib/aarch64-linux-gnu/cmake/yaml-cpp/yaml-cpp-targets.cmake"
   "/usr/share/cmake-3.31/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.31/Modules/CMakeCCompilerABI.c"
   "/usr/share/cmake-3.31/Modules/CMakeCInformation.cmake"
@@ -43,6 +39,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake"
   "/usr/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake"
   "/usr/share/cmake-3.31/Modules/CMakeTestCompilerCommon.cmake"
+  "/usr/share/cmake-3.31/Modules/CMakeUnixFindMake.cmake"
   "/usr/share/cmake-3.31/Modules/Compiler/ADSP-DetermineCompiler.cmake"
   "/usr/share/cmake-3.31/Modules/Compiler/ARMCC-DetermineCompiler.cmake"
   "/usr/share/cmake-3.31/Modules/Compiler/ARMClang-DetermineCompiler.cmake"
@@ -140,7 +137,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/ICM20948.dir/DependInfo.cmake"
-  "CMakeFiles/Nat_Positiondetector.dir/DependInfo.cmake"
+  "CMakeFiles/position_detector.dir/DependInfo.cmake"
   "CMakeFiles/rtes_main.dir/DependInfo.cmake"
   )

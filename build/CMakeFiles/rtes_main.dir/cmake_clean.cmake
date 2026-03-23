@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/rtes_main.dir/link.d"
-  "CMakeFiles/rtes_main.dir/Example/main.cpp.o"
-  "CMakeFiles/rtes_main.dir/Example/main.cpp.o.d"
+  "CMakeFiles/rtes_main.dir/main.cpp.o"
+  "CMakeFiles/rtes_main.dir/main.cpp.o.d"
   "rtes_main"
   "rtes_main.pdb"
 )

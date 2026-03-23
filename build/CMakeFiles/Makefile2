@@ -63,14 +63,12 @@ CMAKE_BINARY_DIR = /home/group5/NatTrial/RTES_Table_Tennis/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/ICM20948.dir/all
-all: CMakeFiles/Nat_Positiondetector.dir/all
+all: CMakeFiles/position_detector.dir/all
 all: CMakeFiles/rtes_main.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/ICM20948.dir/codegen
-codegen: CMakeFiles/Nat_Positiondetector.dir/codegen
+codegen: CMakeFiles/position_detector.dir/codegen
 codegen: CMakeFiles/rtes_main.dir/codegen
 .PHONY : codegen
 
@@ -79,89 +77,55 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/ICM20948.dir/clean
-clean: CMakeFiles/Nat_Positiondetector.dir/clean
+clean: CMakeFiles/position_detector.dir/clean
 clean: CMakeFiles/rtes_main.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/ICM20948.dir
+# Target rules for target CMakeFiles/position_detector.dir
 
 # All Build rule for target.
-CMakeFiles/ICM20948.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=1,2,3 "Built target ICM20948"
-.PHONY : CMakeFiles/ICM20948.dir/all
+CMakeFiles/position_detector.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/position_detector.dir/build.make CMakeFiles/position_detector.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/position_detector.dir/build.make CMakeFiles/position_detector.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=1,2 "Built target position_detector"
+.PHONY : CMakeFiles/position_detector.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ICM20948.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ICM20948.dir/all
+CMakeFiles/position_detector.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/position_detector.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles 0
-.PHONY : CMakeFiles/ICM20948.dir/rule
+.PHONY : CMakeFiles/position_detector.dir/rule
 
 # Convenience name for target.
-ICM20948: CMakeFiles/ICM20948.dir/rule
-.PHONY : ICM20948
+position_detector: CMakeFiles/position_detector.dir/rule
+.PHONY : position_detector
 
 # codegen rule for target.
-CMakeFiles/ICM20948.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target ICM20948"
-.PHONY : CMakeFiles/ICM20948.dir/codegen
+CMakeFiles/position_detector.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/position_detector.dir/build.make CMakeFiles/position_detector.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=1,2 "Finished codegen for target position_detector"
+.PHONY : CMakeFiles/position_detector.dir/codegen
 
 # clean rule for target.
-CMakeFiles/ICM20948.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ICM20948.dir/build.make CMakeFiles/ICM20948.dir/clean
-.PHONY : CMakeFiles/ICM20948.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/Nat_Positiondetector.dir
-
-# All Build rule for target.
-CMakeFiles/Nat_Positiondetector.dir/all: CMakeFiles/ICM20948.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Nat_Positiondetector.dir/build.make CMakeFiles/Nat_Positiondetector.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Nat_Positiondetector.dir/build.make CMakeFiles/Nat_Positiondetector.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=4,5 "Built target Nat_Positiondetector"
-.PHONY : CMakeFiles/Nat_Positiondetector.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/Nat_Positiondetector.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Nat_Positiondetector.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles 0
-.PHONY : CMakeFiles/Nat_Positiondetector.dir/rule
-
-# Convenience name for target.
-Nat_Positiondetector: CMakeFiles/Nat_Positiondetector.dir/rule
-.PHONY : Nat_Positiondetector
-
-# codegen rule for target.
-CMakeFiles/Nat_Positiondetector.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Nat_Positiondetector.dir/build.make CMakeFiles/Nat_Positiondetector.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=4,5 "Finished codegen for target Nat_Positiondetector"
-.PHONY : CMakeFiles/Nat_Positiondetector.dir/codegen
-
-# clean rule for target.
-CMakeFiles/Nat_Positiondetector.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Nat_Positiondetector.dir/build.make CMakeFiles/Nat_Positiondetector.dir/clean
-.PHONY : CMakeFiles/Nat_Positiondetector.dir/clean
+CMakeFiles/position_detector.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/position_detector.dir/build.make CMakeFiles/position_detector.dir/clean
+.PHONY : CMakeFiles/position_detector.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/rtes_main.dir
 
 # All Build rule for target.
-CMakeFiles/rtes_main.dir/all: CMakeFiles/Nat_Positiondetector.dir/all
-CMakeFiles/rtes_main.dir/all: CMakeFiles/ICM20948.dir/all
+CMakeFiles/rtes_main.dir/all: CMakeFiles/position_detector.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=6,7 "Built target rtes_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=3,4 "Built target rtes_main"
 .PHONY : CMakeFiles/rtes_main.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rtes_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/rtes_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles 0
 .PHONY : CMakeFiles/rtes_main.dir/rule
@@ -173,7 +137,7 @@ rtes_main: CMakeFiles/rtes_main.dir/rule
 # codegen rule for target.
 CMakeFiles/rtes_main.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=6,7 "Finished codegen for target rtes_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/NatTrial/RTES_Table_Tennis/build/CMakeFiles --progress-num=3,4 "Finished codegen for target rtes_main"
 .PHONY : CMakeFiles/rtes_main.dir/codegen
 
 # clean rule for target.

@@ -8,8 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/group5/NatTrial/RTES_Table_Tennis/main.cpp" "CMakeFiles/rtes_main.dir/main.cpp.o" "gcc" "CMakeFiles/rtes_main.dir/main.cpp.o.d"
-  "" "rtes_main" "gcc" "CMakeFiles/rtes_main.dir/link.d"
+  "/home/group5/NatTrial/RTES_Table_Tennis/Starting_position/positiondetector.cpp" "CMakeFiles/position_detector.dir/Starting_position/positiondetector.cpp.o" "gcc" "CMakeFiles/position_detector.dir/Starting_position/positiondetector.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

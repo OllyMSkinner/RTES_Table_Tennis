@@ -1,49 +1,37 @@
 #ifndef POSITIONDETECTOR_H
 #define POSITIONDETECTOR_H
 
-#include <atomic>
+#include "../IMU_processing/imudriver/icm20948_i2c.hpp"
 
 namespace PositionDetectorName {
 
-// Existing callback interface
+// Callback interface for reporting upright-state changes
 class UprightCallback {
 public:
     virtual ~UprightCallback() = default;
-    virtual void OnUprightDetected() = 0;
+    virtual void OnUprightStateChanged(bool isUpright) = 0;
 };
 
 class PositionDetector {
 public:
+    using Sample = icm20948::IMUSample;
     using Callback = UprightCallback;
 
-    PositionDetector()
-        : Counter(0),
-          UprightConfirmed(false),
-          callback(nullptr)
-    {}
+    PositionDetector();
 
-    // Core logic (9-axis IMU)
-    void CheckPosition(
-        float ax, float ay, float az,
-        float gx, float gy, float gz,
-        float mx, float my, float mz);
-
-    // Mode 1: Direct IMU on this Pi
-    bool RunFromIMU(unsigned bus,
-                    unsigned addr,
-                    std::atomic_bool& runFlag,
-                    int samplePeriodMs = 50);
-
-    // Mode 2: Read IMU values from Bluetooth RFCOMM
-    bool RunFromRFCOMM(const char* devPath,
-                       std::atomic_bool& runFlag,
-                       int samplePeriodMs = 50);
+    // Called by IMU publisher when a new sample arrives
+    void HasSample(const Sample& sample);
 
     void RegisterCallback(Callback* cb) { callback = cb; }
 
     bool IsUpright() const { return UprightConfirmed; }
 
 private:
+    void CheckPosition(
+        float ax, float ay, float az,
+        float gx, float gy, float gz,
+        float mx, float my, float mz);
+
     int Counter;
     bool UprightConfirmed;
     Callback* callback;

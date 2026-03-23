@@ -2,11 +2,9 @@ rtes_main: \
   /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o \
   /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o \
   /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o \
-  CMakeFiles/rtes_main.dir/Example/main.cpp.o \
-  libNat_Positiondetector.a \
-  /usr/local/lib/libmraa.so \
-  /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/libyaml-cpp.so \
-  libICM20948.a \
+  CMakeFiles/rtes_main.dir/main.cpp.o \
+  libposition_detector.a \
+  /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/libpthread.a \
   /usr/lib/gcc/aarch64-linux-gnu/14/libstdc++.so \
   /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/libm.so \
   /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/libm.so \
@@ -33,9 +31,7 @@ rtes_main: \
   /usr/lib/gcc/aarch64-linux-gnu/14/libgcc.a \
   /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o \
   /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o \
-  /lib/aarch64-linux-gnu/libjson-c.so.5 \
-  /lib/ld-linux-aarch64.so.1 \
-  /lib/aarch64-linux-gnu/libm.so.6
+  /lib/ld-linux-aarch64.so.1
 
 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o:
 
@@ -43,15 +39,11 @@ rtes_main: \
 
 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o:
 
-CMakeFiles/rtes_main.dir/Example/main.cpp.o:
+CMakeFiles/rtes_main.dir/main.cpp.o:
 
-libNat_Positiondetector.a:
+libposition_detector.a:
 
-/usr/local/lib/libmraa.so:
-
-/usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/libyaml-cpp.so:
-
-libICM20948.a:
+/usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/libpthread.a:
 
 /usr/lib/gcc/aarch64-linux-gnu/14/libstdc++.so:
 
@@ -105,8 +97,4 @@ libICM20948.a:
 
 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o:
 
-/lib/aarch64-linux-gnu/libjson-c.so.5:
-
 /lib/ld-linux-aarch64.so.1:
-
-/lib/aarch64-linux-gnu/libm.so.6:
