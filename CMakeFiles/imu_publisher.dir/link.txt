@@ -1,0 +1,2 @@
+/usr/bin/ar qc libimu_publisher.a CMakeFiles/imu_publisher.dir/IMU_processing/IMUPublisher/IMUPublisher.cpp.o
+/usr/bin/ranlib libimu_publisher.a

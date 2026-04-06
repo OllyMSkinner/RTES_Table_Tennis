@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/group5-2/NatTrial/RTES_Table_Tennis/build",
+  "command": "/usr/bin/arm-linux-gnueabihf-g++  -I/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imudriver -I/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imu_settings -g -std=gnu++17 -o CMakeFiles/icm20948.dir/IMU_processing/imudriver/icm20948_i2c.cpp.o -c /home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imudriver/icm20948_i2c.cpp",
+  "file": "/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imudriver/icm20948_i2c.cpp",
+  "output": "CMakeFiles/icm20948.dir/IMU_processing/imudriver/icm20948_i2c.cpp.o"
+},
+{
+  "directory": "/home/group5-2/NatTrial/RTES_Table_Tennis/build",
+  "command": "/usr/bin/arm-linux-gnueabihf-g++  -I/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imudriver -I/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imu_settings -g -std=gnu++17 -o CMakeFiles/icm20948.dir/IMU_processing/imu_settings/icm20948_utils.cpp.o -c /home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imu_settings/icm20948_utils.cpp",
+  "file": "/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imu_settings/icm20948_utils.cpp",
+  "output": "CMakeFiles/icm20948.dir/IMU_processing/imu_settings/icm20948_utils.cpp.o"
+},
+{
+  "directory": "/home/group5-2/NatTrial/RTES_Table_Tennis/build",
+  "command": "/usr/bin/arm-linux-gnueabihf-g++  -I/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/IMUPublisher -I/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imudriver -I/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imu_settings -g -std=gnu++17 -o CMakeFiles/imu_publisher.dir/IMU_processing/IMUPublisher/IMUPublisher.cpp.o -c /home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/IMUPublisher/IMUPublisher.cpp",
+  "file": "/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/IMUPublisher/IMUPublisher.cpp",
+  "output": "CMakeFiles/imu_publisher.dir/IMU_processing/IMUPublisher/IMUPublisher.cpp.o"
+},
+{
+  "directory": "/home/group5-2/NatTrial/RTES_Table_Tennis/build",
+  "command": "/usr/bin/arm-linux-gnueabihf-g++  -I/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/IMUPublisher -I/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imudriver -I/home/group5-2/NatTrial/RTES_Table_Tennis/IMU_processing/imu_settings -g -std=gnu++17 -o CMakeFiles/pi3sender.dir/pi3_sender.cpp.o -c /home/group5-2/NatTrial/RTES_Table_Tennis/pi3_sender.cpp",
+  "file": "/home/group5-2/NatTrial/RTES_Table_Tennis/pi3_sender.cpp",
+  "output": "CMakeFiles/pi3sender.dir/pi3_sender.cpp.o"
+}
+]

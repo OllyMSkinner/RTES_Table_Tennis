@@ -1,0 +1,2 @@
+/usr/bin/arm-linux-gnueabihf-ar qc libimu_publisher.a CMakeFiles/imu_publisher.dir/IMU_processing/IMUPublisher/IMUPublisher.cpp.o
+/usr/bin/arm-linux-gnueabihf-ranlib libimu_publisher.a

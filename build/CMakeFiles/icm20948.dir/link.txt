@@ -1,0 +1,2 @@
+/usr/bin/arm-linux-gnueabihf-ar qc libicm20948.a CMakeFiles/icm20948.dir/IMU_processing/imudriver/icm20948_i2c.cpp.o CMakeFiles/icm20948.dir/IMU_processing/imu_settings/icm20948_utils.cpp.o
+/usr/bin/arm-linux-gnueabihf-ranlib libicm20948.a
