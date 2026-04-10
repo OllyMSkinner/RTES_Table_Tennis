@@ -25,12 +25,12 @@ int main() {
     gpiod_line_config_free(line_cfg);
     gpiod_request_config_free(req_cfg);
 
-    // Set HIGH
+    // Set on high
     std::cout << "GPIO 18 -> HIGH" << std::endl;
     gpiod_line_request_set_value(request, line_num, GPIOD_LINE_VALUE_ACTIVE);
     std::this_thread::sleep_for(std::chrono::seconds(2));
 
-    // Set LOW
+    // Set on low
     std::cout << "GPIO 18 -> LOW" << std::endl;
     gpiod_line_request_set_value(request, line_num, GPIOD_LINE_VALUE_INACTIVE);
     std::this_thread::sleep_for(std::chrono::seconds(2));
