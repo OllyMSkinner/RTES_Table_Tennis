@@ -3,8 +3,11 @@ imu_swing: \
   /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o \
   /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o \
   CMakeFiles/imu_swing.dir/main.cpp.o \
-  CMakeFiles/imu_swing.dir/IMU_library/Icm20948driver.cpp.o \
-  CMakeFiles/imu_swing.dir/positiondetector.cpp.o \
+  CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o \
+  CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o \
+  CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o \
+  CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o \
+  CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o \
   /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/libgpiod.so \
   /usr/local/lib/libmraa.so \
   /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/libyaml-cpp.so \
@@ -46,9 +49,15 @@ imu_swing: \
 
 CMakeFiles/imu_swing.dir/main.cpp.o:
 
-CMakeFiles/imu_swing.dir/IMU_library/Icm20948driver.cpp.o:
+CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o:
 
-CMakeFiles/imu_swing.dir/positiondetector.cpp.o:
+CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o:
+
+CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o:
+
+CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o:
+
+CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o:
 
 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/libgpiod.so:
 

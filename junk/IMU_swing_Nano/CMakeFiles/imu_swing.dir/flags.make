@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano
+CXX_INCLUDES = -I/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano -I/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/../PI5_thatNanoCopied
 
 CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17
 

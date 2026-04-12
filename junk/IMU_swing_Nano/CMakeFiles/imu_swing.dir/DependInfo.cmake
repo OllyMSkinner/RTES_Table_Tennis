@@ -8,9 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/IMU_library/Icm20948driver.cpp" "CMakeFiles/imu_swing.dir/IMU_library/Icm20948driver.cpp.o" "gcc" "CMakeFiles/imu_swing.dir/IMU_library/Icm20948driver.cpp.o.d"
+  "/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/IMU_swingLogic/SwingCalibrator.cpp" "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o" "gcc" "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o.d"
+  "/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/IMU_swingLogic/SwingProcessor.cpp" "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o" "gcc" "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o.d"
+  "/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp" "CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o" "gcc" "CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o.d"
+  "/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp" "CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o" "gcc" "CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o.d"
+  "/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp" "CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o" "gcc" "CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o.d"
   "/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/main.cpp" "CMakeFiles/imu_swing.dir/main.cpp.o" "gcc" "CMakeFiles/imu_swing.dir/main.cpp.o.d"
-  "/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/positiondetector.cpp" "CMakeFiles/imu_swing.dir/positiondetector.cpp.o" "gcc" "CMakeFiles/imu_swing.dir/positiondetector.cpp.o.d"
   "" "imu_swing" "gcc" "CMakeFiles/imu_swing.dir/link.d"
   )
 

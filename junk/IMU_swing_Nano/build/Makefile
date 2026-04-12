@@ -129,29 +129,125 @@ imu_swing/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/build
 .PHONY : imu_swing/fast
 
-IMU_library/Icm20948driver.o: IMU_library/Icm20948driver.cpp.o
-.PHONY : IMU_library/Icm20948driver.o
+IMU_swingLogic/SwingCalibrator.o: IMU_swingLogic/SwingCalibrator.cpp.o
+.PHONY : IMU_swingLogic/SwingCalibrator.o
 
 # target to build an object file
-IMU_library/Icm20948driver.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_library/Icm20948driver.cpp.o
-.PHONY : IMU_library/Icm20948driver.cpp.o
+IMU_swingLogic/SwingCalibrator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o
+.PHONY : IMU_swingLogic/SwingCalibrator.cpp.o
 
-IMU_library/Icm20948driver.i: IMU_library/Icm20948driver.cpp.i
-.PHONY : IMU_library/Icm20948driver.i
+IMU_swingLogic/SwingCalibrator.i: IMU_swingLogic/SwingCalibrator.cpp.i
+.PHONY : IMU_swingLogic/SwingCalibrator.i
 
 # target to preprocess a source file
-IMU_library/Icm20948driver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_library/Icm20948driver.cpp.i
-.PHONY : IMU_library/Icm20948driver.cpp.i
+IMU_swingLogic/SwingCalibrator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.i
+.PHONY : IMU_swingLogic/SwingCalibrator.cpp.i
 
-IMU_library/Icm20948driver.s: IMU_library/Icm20948driver.cpp.s
-.PHONY : IMU_library/Icm20948driver.s
+IMU_swingLogic/SwingCalibrator.s: IMU_swingLogic/SwingCalibrator.cpp.s
+.PHONY : IMU_swingLogic/SwingCalibrator.s
 
 # target to generate assembly for a file
-IMU_library/Icm20948driver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_library/Icm20948driver.cpp.s
-.PHONY : IMU_library/Icm20948driver.cpp.s
+IMU_swingLogic/SwingCalibrator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.s
+.PHONY : IMU_swingLogic/SwingCalibrator.cpp.s
+
+IMU_swingLogic/SwingProcessor.o: IMU_swingLogic/SwingProcessor.cpp.o
+.PHONY : IMU_swingLogic/SwingProcessor.o
+
+# target to build an object file
+IMU_swingLogic/SwingProcessor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o
+.PHONY : IMU_swingLogic/SwingProcessor.cpp.o
+
+IMU_swingLogic/SwingProcessor.i: IMU_swingLogic/SwingProcessor.cpp.i
+.PHONY : IMU_swingLogic/SwingProcessor.i
+
+# target to preprocess a source file
+IMU_swingLogic/SwingProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.i
+.PHONY : IMU_swingLogic/SwingProcessor.cpp.i
+
+IMU_swingLogic/SwingProcessor.s: IMU_swingLogic/SwingProcessor.cpp.s
+.PHONY : IMU_swingLogic/SwingProcessor.s
+
+# target to generate assembly for a file
+IMU_swingLogic/SwingProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.s
+.PHONY : IMU_swingLogic/SwingProcessor.cpp.s
+
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.o: home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.o
+
+# target to build an object file
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o
+
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.i: home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.i
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.i
+
+# target to preprocess a source file
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.i
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.i
+
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.s: home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.s
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.s
+
+# target to generate assembly for a file
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.s
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.s
+
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.o: home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.o
+
+# target to build an object file
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o
+
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.i: home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.i
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.i
+
+# target to preprocess a source file
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.i
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.i
+
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.s: home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.s
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.s
+
+# target to generate assembly for a file
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.s
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.s
+
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.o: home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.o
+
+# target to build an object file
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o
+
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.i: home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.i
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.i
+
+# target to preprocess a source file
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.i
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.i
+
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.s: home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.s
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.s
+
+# target to generate assembly for a file
+home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.s
+.PHONY : home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -177,30 +273,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-positiondetector.o: positiondetector.cpp.o
-.PHONY : positiondetector.o
-
-# target to build an object file
-positiondetector.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/positiondetector.cpp.o
-.PHONY : positiondetector.cpp.o
-
-positiondetector.i: positiondetector.cpp.i
-.PHONY : positiondetector.i
-
-# target to preprocess a source file
-positiondetector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/positiondetector.cpp.i
-.PHONY : positiondetector.cpp.i
-
-positiondetector.s: positiondetector.cpp.s
-.PHONY : positiondetector.s
-
-# target to generate assembly for a file
-positiondetector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/positiondetector.cpp.s
-.PHONY : positiondetector.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -210,15 +282,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... imu_swing"
-	@echo "... IMU_library/Icm20948driver.o"
-	@echo "... IMU_library/Icm20948driver.i"
-	@echo "... IMU_library/Icm20948driver.s"
+	@echo "... IMU_swingLogic/SwingCalibrator.o"
+	@echo "... IMU_swingLogic/SwingCalibrator.i"
+	@echo "... IMU_swingLogic/SwingCalibrator.s"
+	@echo "... IMU_swingLogic/SwingProcessor.o"
+	@echo "... IMU_swingLogic/SwingProcessor.i"
+	@echo "... IMU_swingLogic/SwingProcessor.s"
+	@echo "... home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.o"
+	@echo "... home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.i"
+	@echo "... home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.s"
+	@echo "... home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.o"
+	@echo "... home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.i"
+	@echo "... home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.s"
+	@echo "... home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.o"
+	@echo "... home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.i"
+	@echo "... home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... positiondetector.o"
-	@echo "... positiondetector.i"
-	@echo "... positiondetector.s"
 .PHONY : help
 
 
