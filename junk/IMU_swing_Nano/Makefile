@@ -153,6 +153,30 @@ IMU_swingLogic/SwingCalibrator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.s
 .PHONY : IMU_swingLogic/SwingCalibrator.cpp.s
 
+IMU_swingLogic/SwingDetector.o: IMU_swingLogic/SwingDetector.cpp.o
+.PHONY : IMU_swingLogic/SwingDetector.o
+
+# target to build an object file
+IMU_swingLogic/SwingDetector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o
+.PHONY : IMU_swingLogic/SwingDetector.cpp.o
+
+IMU_swingLogic/SwingDetector.i: IMU_swingLogic/SwingDetector.cpp.i
+.PHONY : IMU_swingLogic/SwingDetector.i
+
+# target to preprocess a source file
+IMU_swingLogic/SwingDetector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.i
+.PHONY : IMU_swingLogic/SwingDetector.cpp.i
+
+IMU_swingLogic/SwingDetector.s: IMU_swingLogic/SwingDetector.cpp.s
+.PHONY : IMU_swingLogic/SwingDetector.s
+
+# target to generate assembly for a file
+IMU_swingLogic/SwingDetector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.s
+.PHONY : IMU_swingLogic/SwingDetector.cpp.s
+
 IMU_swingLogic/SwingProcessor.o: IMU_swingLogic/SwingProcessor.cpp.o
 .PHONY : IMU_swingLogic/SwingProcessor.o
 
@@ -285,6 +309,9 @@ help:
 	@echo "... IMU_swingLogic/SwingCalibrator.o"
 	@echo "... IMU_swingLogic/SwingCalibrator.i"
 	@echo "... IMU_swingLogic/SwingCalibrator.s"
+	@echo "... IMU_swingLogic/SwingDetector.o"
+	@echo "... IMU_swingLogic/SwingDetector.i"
+	@echo "... IMU_swingLogic/SwingDetector.s"
 	@echo "... IMU_swingLogic/SwingProcessor.o"
 	@echo "... IMU_swingLogic/SwingProcessor.i"
 	@echo "... IMU_swingLogic/SwingProcessor.s"

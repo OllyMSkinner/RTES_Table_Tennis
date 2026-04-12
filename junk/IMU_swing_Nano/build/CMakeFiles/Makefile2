@@ -85,12 +85,12 @@ clean: CMakeFiles/imu_swing.dir/clean
 CMakeFiles/imu_swing.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target imu_swing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target imu_swing"
 .PHONY : CMakeFiles/imu_swing.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/imu_swing.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/imu_swing.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles 0
 .PHONY : CMakeFiles/imu_swing.dir/rule
@@ -102,7 +102,7 @@ imu_swing: CMakeFiles/imu_swing.dir/rule
 # codegen rule for target.
 CMakeFiles/imu_swing.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imu_swing.dir/build.make CMakeFiles/imu_swing.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Finished codegen for target imu_swing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Finished codegen for target imu_swing"
 .PHONY : CMakeFiles/imu_swing.dir/codegen
 
 # clean rule for target.

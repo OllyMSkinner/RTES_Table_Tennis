@@ -1,4 +1,5 @@
 #include "IMU_swingLogic/SwingProcessor.hpp"
+#include "IMU_swingLogic/SwingDetector.hpp"
 #include "imureader.hpp"
 
 #include <cstdio>
@@ -25,7 +26,15 @@ int main()
         return EXIT_FAILURE;
     }
 
+    SwingDetector swing_detector;
+    swing_detector.setCallback([](const char* level) {
+        std::printf(">> %s\n", level);
+    });
+
     SwingProcessor processor(ACCEL_DEADBAND, CALIB_SAMPLES, RECAL_SAMPLES);
+    processor.setMagnitudeCallback([&swing_detector](float mag) {
+        swing_detector.detect(mag);
+    });
     std::printf("Calibrating — keep device still for ~2 s...\n");
     reader.setCallback([&processor](float ax, float ay, float az,
                                     float gx, float gy, float gz,

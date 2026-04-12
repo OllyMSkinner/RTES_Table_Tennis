@@ -114,10 +114,24 @@ CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/IMU_swingLogic/SwingProcessor.cpp -o CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.s
 
+CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o: CMakeFiles/imu_swing.dir/flags.make
+CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o: /home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/IMU_swingLogic/SwingDetector.cpp
+CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o: CMakeFiles/imu_swing.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o -MF CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o.d -o CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o -c /home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/IMU_swingLogic/SwingDetector.cpp
+
+CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/IMU_swingLogic/SwingDetector.cpp > CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.i
+
+CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/IMU_swingLogic/SwingDetector.cpp -o CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.s
+
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o: CMakeFiles/imu_swing.dir/flags.make
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o: /home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o: CMakeFiles/imu_swing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o -MF CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o.d -o CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o -c /home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp
 
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.i: cmake_force
@@ -131,7 +145,7 @@ CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/I
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o: CMakeFiles/imu_swing.dir/flags.make
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o: /home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o: CMakeFiles/imu_swing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o -MF CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o.d -o CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o -c /home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp
 
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.i: cmake_force
@@ -145,7 +159,7 @@ CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/i
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o: CMakeFiles/imu_swing.dir/flags.make
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o: /home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o: CMakeFiles/imu_swing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o -MF CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o.d -o CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o -c /home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp
 
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.i: cmake_force
@@ -161,6 +175,7 @@ imu_swing_OBJECTS = \
 "CMakeFiles/imu_swing.dir/main.cpp.o" \
 "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o" \
 "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o" \
+"CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o" \
 "CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o" \
 "CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o" \
 "CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o"
@@ -171,13 +186,14 @@ imu_swing_EXTERNAL_OBJECTS =
 imu_swing: CMakeFiles/imu_swing.dir/main.cpp.o
 imu_swing: CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o
 imu_swing: CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o
+imu_swing: CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o
 imu_swing: CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o
 imu_swing: CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o
 imu_swing: CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o
 imu_swing: CMakeFiles/imu_swing.dir/build.make
 imu_swing: CMakeFiles/imu_swing.dir/compiler_depend.ts
 imu_swing: CMakeFiles/imu_swing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable imu_swing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/group5/RTES_Table_Tennis/junk/IMU_swing_Nano/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable imu_swing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imu_swing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/imu_swing.dir/link.d"
   "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o"
   "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o.d"
+  "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o"
+  "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o.d"
   "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o"
   "CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o.d"
   "CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o"

@@ -16,6 +16,7 @@ add_executable(imu_swing
     main.cpp
     IMU_swingLogic/SwingCalibrator.cpp
     IMU_swingLogic/SwingProcessor.cpp
+    IMU_swingLogic/SwingDetector.cpp
     ${SHARED_DIR}/Icm20948driver.cpp
     ${SHARED_DIR}/imureader.cpp
     ${SHARED_DIR}/positiondetector.cpp

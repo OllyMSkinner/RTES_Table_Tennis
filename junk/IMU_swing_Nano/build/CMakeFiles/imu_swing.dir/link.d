@@ -5,6 +5,7 @@ imu_swing: \
   CMakeFiles/imu_swing.dir/main.cpp.o \
   CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o \
   CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o \
+  CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o \
   CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o \
   CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/imureader.cpp.o \
   CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/positiondetector.cpp.o \
@@ -52,6 +53,8 @@ CMakeFiles/imu_swing.dir/main.cpp.o:
 CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingCalibrator.cpp.o:
 
 CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingProcessor.cpp.o:
+
+CMakeFiles/imu_swing.dir/IMU_swingLogic/SwingDetector.cpp.o:
 
 CMakeFiles/imu_swing.dir/home/group5/RTES_Table_Tennis/junk/PI5_thatNanoCopied/Icm20948driver.cpp.o:
 
