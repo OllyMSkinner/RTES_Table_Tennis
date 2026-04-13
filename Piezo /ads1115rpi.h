@@ -1,18 +1,6 @@
 #ifndef __ADS1115RPI_H
 #define __ADS1115RPI_H
 
-/*
- * ADS1115 class to read data at a given sampling rate
- *
- * Copyright (c) 2007  MontaVista Software, Inc.
- * Copyright (c) 2007  Anton Vorontsov <avorontsov@ru.mvista.com>
- * Copyright (c) 2013-2025  Bernd Porr <mail@berndporr.me.uk>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License.
- *
- */
 #include <stdint.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -22,38 +10,19 @@
 #include <thread>
 #include <gpiod.hpp>
 #include <functional>
+#include <memory>
 
-// enable debug messages and error messages to stderr
 #ifndef NDEBUG
 #define DEBUG
 #endif
 
-/**
- * ADS1115 initial settings when starting the device.
- **/
 struct ADS1115settings
 {
-
-    /**
-     * I2C bus used (99% always set to one)
-     **/
     int i2c_bus = 1;
 
-    /**
-     * The default address of the ADS1115.
-     * 48H is the address of the ADS1115 if the ADR pin is pulled to GND
-     * and taken here as the default address.
-     */
     static constexpr uint8_t DEFAULT_ADS1115_ADDRESS = 0x48;
-
-    /**
-     * I2C address of the ads1115
-     **/
     uint8_t address = DEFAULT_ADS1115_ADDRESS;
 
-    /**
-     * Sampling rates
-     **/
     enum SamplingRates
     {
         FS8HZ = 0,
@@ -66,9 +35,6 @@ struct ADS1115settings
         FS860HZ = 7
     };
 
-    /**
-     * Get the sampling rate in Hz
-     **/
     inline unsigned getSamplingRate() const
     {
         const unsigned SamplingRateEnum2Value[8] =
@@ -76,14 +42,8 @@ struct ADS1115settings
         return SamplingRateEnum2Value[samplingRate];
     }
 
-    /**
-     * Sampling rate requested
-     **/
-    SamplingRates samplingRate = FS8HZ;
+    SamplingRates samplingRate = FS128HZ;
 
-    /**
-     * Full scale range: 2.048V, 1.024V, 0.512V or 0.256V.
-     **/
     enum PGA
     {
         FSR2_048 = 2,
@@ -92,14 +52,8 @@ struct ADS1115settings
         FSR0_256 = 5
     };
 
-    /**
-     * Requested full scale range
-     **/
     PGA pgaGain = FSR2_048;
 
-    /**
-     * Channel indices
-     **/
     enum Input
     {
         AIN0 = 0,
@@ -108,93 +62,43 @@ struct ADS1115settings
         AIN3 = 3
     };
 
-    /**
-     * Requested input channel (AIN0..AIN3)
-     **/
     Input channel = AIN0;
 
-    /**
-     * GPIO Chip number which receives the Data Ready signal.
-     **/
     int drdy_chip = 0;
 
-    /**
-     * Default GPIO pin for the ALRT/DRY signal.
-     **/
-    static constexpr int DEFAULT_ALERT_RDY_TO_GPIO = 17;
-
-    /**
-     * GPIO pin connected to ALERT/RDY
-     **/
+    static constexpr int DEFAULT_ALERT_RDY_TO_GPIO = 26;
     int drdy_gpio = DEFAULT_ALERT_RDY_TO_GPIO;
 };
 
-/**
- * This class reads data from the ADS1115 in the background (separate
- * thread) and calls a callback function whenever data is available.
- **/
+ADS1115settings makeDefaultADS1115Settings();
+
 class ADS1115rpi
 {
-
 public:
-    /**
-     * Destructor which makes sure the data acquisition
-     * stops on exit.
-     **/
     ~ADS1115rpi()
     {
         stop();
     }
 
-    /**
-     * Callback function type when a new sample is available. Callback value is in volt.
-     **/
     using ADSCallbackInterface = std::function<void(float)>;
 
-    /**
-     * Registers callback with this class.
-     *
-     * \param ci Callback method and needs to be of type ADSCallbackInterface.
-     */
     void registerCallback(ADSCallbackInterface ci)
     {
         adsCallbackInterface = ci;
     }
 
-    /**
-     * Selects a different channel at the multiplexer
-     * while running.
-     * Call this in the callback handler hasSample()
-     * to cycle through different channels.
-     * \param channel Sets the channel from A0..A3.
-     **/
     void setChannel(ADS1115settings::Input channel);
-
-    /**
-     * Starts the data acquisition in the background and the
-     * callback is called with new samples.
-     * \param settings A struct with the settings.
-     **/
     void start(ADS1115settings settings = ADS1115settings());
-
-    /**
-     * Returns the current settings
-     **/
     ADS1115settings getADS1115settings() const
     {
         return ads1115settings;
     }
-
-    /**
-     * Stops the data acquistion
-     **/
     void stop();
 
 private:
     ADS1115settings ads1115settings;
 
     void dataReady();
-
     void worker();
 
     void i2c_writeWord(uint8_t reg, unsigned data);
@@ -219,21 +123,16 @@ private:
             return 0.256f;
         }
         assert(1 == 0);
-        return 0;
+        return 0.0f;
     }
 
     std::shared_ptr<gpiod::chip> chip;
     std::shared_ptr<gpiod::line_request> request;
-
     std::thread thr;
-
     int fd_i2c = -1;
-
     bool running = false;
-
     ADSCallbackInterface adsCallbackInterface;
 
-    // timeout if no DATA READY has been received
     static constexpr int64_t ISR_TIMEOUT_MS = 500;
 };
 
