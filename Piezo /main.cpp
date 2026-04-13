@@ -5,12 +5,12 @@
 #include "event_detector.h"
 #include "led_controller.h"
 
-int main() 
+int main()
 {
     try
     {
         constexpr float DIP_THRESHOLD  = 0.5f;
-        constexpr float PEAK_THRESHOLD = 3.0f;   // 4.5f will never be reached with current scaling
+        constexpr float PEAK_THRESHOLD = 3.0f;   
         constexpr int FLASH_MS = 100;
 
         // Change these GPIO numbers to match your wiring
