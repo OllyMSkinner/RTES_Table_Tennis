@@ -1,10 +1,17 @@
 #include "event_detector.h"
+#include "led_controller.h"
 #include <iostream>
 
-PiezoEventDetector::PiezoEventDetector(float dipThreshold, float peakThreshold)
-    : dipThreshold_(dipThreshold),
+PiezoEventDetector::PiezoEventDetector(LEDController& ledRef,
+                                       float dipThreshold,
+                                       float peakThreshold,
+                                       int flashMs)
+    : led_(ledRef),
+      dipThreshold_(dipThreshold),
       peakThreshold_(peakThreshold),
-      seenDip_(false)
+      flashMs_(flashMs),
+      dipTriggered_(false),
+      peakTriggered_(false)
 {
     std::cout << "Detector initialised with dip=" << dipThreshold_
               << " peak=" << peakThreshold_ << std::endl;
@@ -12,17 +19,23 @@ PiezoEventDetector::PiezoEventDetector(float dipThreshold, float peakThreshold)
 
 void PiezoEventDetector::processSample(float v)
 {
-    // Dip detected (first event)
-    if (!seenDip_ && v <= dipThreshold_)
+    if (!dipTriggered_ && v <= dipThreshold_)
     {
         std::cout << "GREEN" << std::endl;
-        seenDip_ = true;
+        led_.flashGreen(flashMs_);
+        dipTriggered_ = true;
+        peakTriggered_ = false;
     }
-
-    // Peak detected (second event)
-    else if (seenDip_ && v >= peakThreshold_)
+    else if (dipTriggered_ && !peakTriggered_ && v >= peakThreshold_)
     {
         std::cout << "RED" << std::endl;
-        seenDip_ = false;  // reset for next cycle
+        led_.flashRed(flashMs_);
+        peakTriggered_ = true;
+    }
+    else if (v > dipThreshold_ && v < peakThreshold_)
+    {
+        // Reset once signal comes back into the middle region
+        dipTriggered_ = false;
+        peakTriggered_ = false;
     }
 }
