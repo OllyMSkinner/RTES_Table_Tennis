@@ -1,18 +1,30 @@
 #ifndef EVENT_DETECTOR_H
 #define EVENT_DETECTOR_H
 
+class LEDController;
+
+struct PiezoEventDetectorSettings
+{
+    float dipThreshold = 0.5f;
+    float peakThreshold = 3.0f;
+    int flashMs = 100;
+    bool enableDebugPrints = false;
+};
+
 class PiezoEventDetector
 {
 public:
-    PiezoEventDetector(float dipThreshold, float peakThreshold);
+    PiezoEventDetector(LEDController& ledRef,
+                       PiezoEventDetectorSettings settings = PiezoEventDetectorSettings());
 
     void processSample(float v);
 
 private:
-    float dipThreshold_;
-    float peakThreshold_;
+    LEDController& led_;
+    PiezoEventDetectorSettings settings_;
 
-    bool seenDip_;
+    bool dipTriggered_ = false;
+    bool peakTriggered_ = false;
 };
 
 #endif
