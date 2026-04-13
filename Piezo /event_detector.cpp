@@ -1,28 +1,48 @@
 #include "event_detector.h"
+#include "led_controller.h"
+
 #include <iostream>
 
-PiezoEventDetector::PiezoEventDetector(float dipThreshold, float peakThreshold)
-    : dipThreshold_(dipThreshold),
-      peakThreshold_(peakThreshold),
-      seenDip_(false)
+PiezoEventDetector::PiezoEventDetector(LEDController& ledRef,
+                                       PiezoEventDetectorSettings settings)
+    : led_(ledRef),
+      settings_(settings)
 {
-    std::cout << "Detector initialised with dip=" << dipThreshold_
-              << " peak=" << peakThreshold_ << std::endl;
+    if (settings_.enableDebugPrints)
+    {
+        std::cout << "Detector initialised with dip=" << settings_.dipThreshold
+                  << " peak=" << settings_.peakThreshold << std::endl;
+    }
 }
 
 void PiezoEventDetector::processSample(float v)
 {
-    // Dip detected (first event)
-    if (!seenDip_ && v <= dipThreshold_)
-    {
-        std::cout << "GREEN" << std::endl;
-        seenDip_ = true;
-    }
+    led_.service();
 
-    // Peak detected (second event)
-    else if (seenDip_ && v >= peakThreshold_)
+    if (!dipTriggered_ && v <= settings_.dipThreshold)
     {
-        std::cout << "RED" << std::endl;
-        seenDip_ = false;  // reset for next cycle
+        if (settings_.enableDebugPrints)
+        {
+            std::cout << "GREEN" << std::endl;
+        }
+
+        led_.flashGreen(settings_.flashMs);
+        dipTriggered_ = true;
+        peakTriggered_ = false;
+    }
+    else if (dipTriggered_ && !peakTriggered_ && v >= settings_.peakThreshold)
+    {
+        if (settings_.enableDebugPrints)
+        {
+            std::cout << "RED" << std::endl;
+        }
+
+        led_.flashRed(settings_.flashMs);
+        peakTriggered_ = true;
+    }
+    else if (v > settings_.dipThreshold && v < settings_.peakThreshold)
+    {
+        dipTriggered_ = false;
+        peakTriggered_ = false;
     }
 }
