@@ -30,16 +30,6 @@ void PiezoEventDetector::processSample(float v)
         dipTriggered_ = true;
         peakTriggered_ = false;
     }
-    else if (dipTriggered_ && !peakTriggered_ && v >= settings_.peakThreshold)
-    {
-        if (settings_.enableDebugPrints)
-        {
-            std::cout << "RED" << std::endl;
-        }
-
-        led_.flashRed(settings_.flashMs);
-        peakTriggered_ = true;
-    }
     else if (v > settings_.dipThreshold && v < settings_.peakThreshold)
     {
         dipTriggered_ = false;
