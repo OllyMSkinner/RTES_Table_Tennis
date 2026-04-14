@@ -30,7 +30,8 @@ CMakeCache.txt
 cmake_install.cmake
 build/
 out/
-# junk/ # uncomment this when everything is done
+junk/ 
+# uncomment junk/ when everything is done
 
 # Precompiled headers
 *.gch
