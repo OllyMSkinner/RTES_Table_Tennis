@@ -23,7 +23,7 @@ SwingProcessor::SwingProcessor(float accel_deadband, int calib_samples, int reca
 
     detector_.setCallback([this](bool upright) {
         if (upright) {
-            std::printf("Start position detected — recalibrating bias...\n");
+            std::printf("Start position detected — recalibrating bias.\n");
             calibrator_.triggerRecal();
         }
     });

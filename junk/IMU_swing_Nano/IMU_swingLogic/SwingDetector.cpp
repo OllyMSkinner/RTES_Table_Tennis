@@ -20,8 +20,8 @@ void SwingDetector::detect(float accel_mag)
 
 SwingDetector::Level SwingDetector::classify(float a)
 {
-    if (a >= 20.f)  return Level::HIGH;
-    if (a >= 10.f)  return Level::MEDIUM;
+    if (a >= 25.f)  return Level::HIGH;
+    if (a >= 15.f)  return Level::MEDIUM;
     if (a >=  5.f)  return Level::LOW;
     return Level::NONE;
 }
