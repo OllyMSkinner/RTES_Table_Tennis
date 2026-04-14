@@ -1,6 +1,9 @@
-# Project Title
+# HapticPing 
 
-Simple overview of use/purpose.
+We combine table tennis shadow practice with haptic feedback.
+
+A project from ENG 5220 Real-Time Embedded Programming
+University of Glasgow, 2026
 
 ## Description
 
@@ -36,11 +39,13 @@ command to run if program contains helper info
 ```
 
 ## Authors
+Despina Charalambous (2689332C)
+Najaree Janjerdsak (2717383J)
+Natalia McCoy (2661134M)
+Olivia Skinner (2671612S)
+Wiktoria Smolarek (2619869S)
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+<!-- ex. [@DomPizzie](https://twitter.com/dompizzie) -->
 
 ## Version History
 
@@ -50,9 +55,9 @@ ex. [@DomPizzie](https://twitter.com/dompizzie)
 * 0.1
     * Initial Release
 
-## License
+<!-- ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details -->
 
 ## Acknowledgments
 
