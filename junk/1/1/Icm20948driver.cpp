@@ -208,34 +208,7 @@ namespace icm20948
         magn[0]  = magn[1]  = magn[2]  = 0.0f;
     }
 
-bool ICM20948_I2C::init()
-{
-    uint8_t device_id = 0;
-    bool success = true;
 
-    success &= _set_bank(0);
-    success &= _read_byte(ICM20948_WHO_AM_I_BANK, ICM20948_WHO_AM_I_ADDR, device_id);
-    success &= (device_id == ICM20948_BANK0_WHO_AM_I_VALUE);
-    success &= reset();
-    success &= wake();
-    success &= set_settings();
-    success &= _enable_data_ready_interrupt();
-
-    bool magn_ok = false;
-    for (int i = 0; i < 3; ++i) {
-        magn_ok = _magnetometer_init();
-        if (magn_ok) break;
-    }
-    if (!magn_ok) {
-        std::cerr << "[IMU] Magnetometer init failed, continuing without it\n";
-        // Disable I2C master so the failed mag init does not corrupt
-        // subsequent accel/gyro reads via the main I2C bus
-        _write_bit(ICM20948_USER_CTRL_BANK,
-                   ICM20948_USER_CTRL_ADDR, 5, false);
-    }
-
-    return success;
-}
 
     bool ICM20948_I2C::reset()
     {
@@ -407,35 +380,58 @@ bool ICM20948_I2C::init()
     }
 
     bool ICM20948_I2C::_magnetometer_init()
-    {
-        bool ok = true;
-        ok &= _magnetometer_enable();
-        if (!ok) { std::cerr << "Failed on _magnetometer_enable()\n"; return false; }
-        ok &= _magnetometer_set_mode();
-        if (!ok) { std::cerr << "Failed on _magnetometer_set_mode()\n"; return false; }
-        ok &= _magnetometer_configured();
-        if (!ok) { std::cerr << "Failed on _magnetometer_configured()\n"; return false; }
-        ok &= _magnetometer_set_readout();
-        if (!ok) { std::cerr << "Failed on _magnetometer_set_readout()\n"; return false; }
-        return ok;
+{
+    bool ok = true;
+    ok &= _magnetometer_enable();
+    if (!ok) {
+        std::cerr << "Failed on _magnetometer_enable()\n";
+        _write_bit(ICM20948_USER_CTRL_BANK, ICM20948_USER_CTRL_ADDR, 5, false);
+        return false;
     }
-
-    bool ICM20948_I2C::_magnetometer_enable()
-    {
-        bool ok = _write_bit(ICM20948_INT_PIN_CFG_BANK,
-                             ICM20948_INT_PIN_CFG_ADDR, 1, false);
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
-
-        ok &= _write_byte(ICM20948_I2C_MST_CTRL_BANK,
-                          ICM20948_I2C_MST_CTRL_ADDR, 0x4D);
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
-
-        ok &= _write_bit(ICM20948_USER_CTRL_BANK,
-                         ICM20948_USER_CTRL_ADDR, 5, true);
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-
-        return ok;
+    ok &= _magnetometer_set_mode();
+    if (!ok) {
+        std::cerr << "Failed on _magnetometer_set_mode()\n";
+        _write_bit(ICM20948_USER_CTRL_BANK, ICM20948_USER_CTRL_ADDR, 5, false);
+        return false;
     }
+    ok &= _magnetometer_configured();
+    if (!ok) {
+        std::cerr << "Failed on _magnetometer_configured()\n";
+        _write_bit(ICM20948_USER_CTRL_BANK, ICM20948_USER_CTRL_ADDR, 5, false);
+        return false;
+    }
+    ok &= _magnetometer_set_readout();
+    if (!ok) {
+        std::cerr << "Failed on _magnetometer_set_readout()\n";
+        _write_bit(ICM20948_USER_CTRL_BANK, ICM20948_USER_CTRL_ADDR, 5, false);
+        return false;
+    }
+    return ok;
+}
+
+    bool ICM20948_I2C::init()
+{
+    uint8_t device_id = 0;
+    bool success = true;
+
+    success &= _set_bank(0);
+    success &= _read_byte(ICM20948_WHO_AM_I_BANK, ICM20948_WHO_AM_I_ADDR, device_id);
+    success &= (device_id == ICM20948_BANK0_WHO_AM_I_VALUE);
+    success &= reset();
+    success &= wake();
+    success &= set_settings();
+    success &= _enable_data_ready_interrupt();
+
+    // Magnetometer skipped — AK09916 not responding on this hardware.
+    // Heading check is disabled in PositionDetector (tolerance = 180deg)
+    // so mx/my = 0 has no effect on position detection.
+    // Explicitly disable I2C master to prevent aux bus interfering
+    // with accel/gyro reads.
+    _write_bit(ICM20948_USER_CTRL_BANK,
+               ICM20948_USER_CTRL_ADDR, 5, false);
+
+    return success;
+}
 
     bool ICM20948_I2C::_magnetometer_set_mode()
     {
