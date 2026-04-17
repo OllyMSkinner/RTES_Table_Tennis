@@ -6,7 +6,7 @@
 
 struct PiezoEventDetectorSettings
 {
-    float pressThreshold = 0.5f;
+    float pressThreshold = 0.95f;
     float releaseThreshold = 0.70f;
     bool enableDebugPrints = false;
 };

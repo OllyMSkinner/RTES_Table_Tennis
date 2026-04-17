@@ -9,7 +9,7 @@
 #include <unistd.h>
 
 static constexpr unsigned int PWM_GPIO_LINE = 18;
-static constexpr int PWM_FREQ_HZ = 50;
+static constexpr int PWM_FREQ_HZ = 30;
 
 class RPI_PWM {
 public:

@@ -17,7 +17,7 @@ void SwingDetector::reset()
 void SwingDetector::detect(float accel_mag)
 {
     Level current = classify(accel_mag);
-    if (current > last_level_) {
+    if (current != last_level_) {
         last_level_ = current;
         if (callback_) callback_(label(current));
     }

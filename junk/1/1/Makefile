@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/group5/RTES_Table_Tennis/junk/1/1
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -129,6 +139,84 @@ rtes_main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/build
 .PHONY : rtes_main/fast
 
+#=============================================================================
+# Target rules for targets named SwingDetector_GTest
+
+# Build rule for target.
+SwingDetector_GTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SwingDetector_GTest
+.PHONY : SwingDetector_GTest
+
+# fast build rule for target.
+SwingDetector_GTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingDetector_GTest.dir/build.make CMakeFiles/SwingDetector_GTest.dir/build
+.PHONY : SwingDetector_GTest/fast
+
+#=============================================================================
+# Target rules for targets named SwingCalibrator_GTest
+
+# Build rule for target.
+SwingCalibrator_GTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SwingCalibrator_GTest
+.PHONY : SwingCalibrator_GTest
+
+# fast build rule for target.
+SwingCalibrator_GTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingCalibrator_GTest.dir/build.make CMakeFiles/SwingCalibrator_GTest.dir/build
+.PHONY : SwingCalibrator_GTest/fast
+
+#=============================================================================
+# Target rules for targets named PiezoEventDetector_GTest
+
+# Build rule for target.
+PiezoEventDetector_GTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PiezoEventDetector_GTest
+.PHONY : PiezoEventDetector_GTest
+
+# fast build rule for target.
+PiezoEventDetector_GTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/build
+.PHONY : PiezoEventDetector_GTest/fast
+
+#=============================================================================
+# Target rules for targets named SwingFeedback_GTest
+
+# Build rule for target.
+SwingFeedback_GTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SwingFeedback_GTest
+.PHONY : SwingFeedback_GTest
+
+# fast build rule for target.
+SwingFeedback_GTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingFeedback_GTest.dir/build.make CMakeFiles/SwingFeedback_GTest.dir/build
+.PHONY : SwingFeedback_GTest/fast
+
+#=============================================================================
+# Target rules for targets named PositionDetector_GTest
+
+# Build rule for target.
+PositionDetector_GTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PositionDetector_GTest
+.PHONY : PositionDetector_GTest
+
+# fast build rule for target.
+PositionDetector_GTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PositionDetector_GTest.dir/build.make CMakeFiles/PositionDetector_GTest.dir/build
+.PHONY : PositionDetector_GTest/fast
+
+#=============================================================================
+# Target rules for targets named SwingProcessor_GTest
+
+# Build rule for target.
+SwingProcessor_GTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SwingProcessor_GTest
+.PHONY : SwingProcessor_GTest
+
+# fast build rule for target.
+SwingProcessor_GTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/build
+.PHONY : SwingProcessor_GTest/fast
+
 Icm20948driver.o: Icm20948driver.cpp.o
 .PHONY : Icm20948driver.o
 
@@ -159,6 +247,8 @@ SwingCalibrator.o: SwingCalibrator.cpp.o
 # target to build an object file
 SwingCalibrator.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/SwingCalibrator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingCalibrator_GTest.dir/build.make CMakeFiles/SwingCalibrator_GTest.dir/SwingCalibrator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/SwingCalibrator.cpp.o
 .PHONY : SwingCalibrator.cpp.o
 
 SwingCalibrator.i: SwingCalibrator.cpp.i
@@ -167,6 +257,8 @@ SwingCalibrator.i: SwingCalibrator.cpp.i
 # target to preprocess a source file
 SwingCalibrator.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/SwingCalibrator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingCalibrator_GTest.dir/build.make CMakeFiles/SwingCalibrator_GTest.dir/SwingCalibrator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/SwingCalibrator.cpp.i
 .PHONY : SwingCalibrator.cpp.i
 
 SwingCalibrator.s: SwingCalibrator.cpp.s
@@ -175,6 +267,8 @@ SwingCalibrator.s: SwingCalibrator.cpp.s
 # target to generate assembly for a file
 SwingCalibrator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/SwingCalibrator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingCalibrator_GTest.dir/build.make CMakeFiles/SwingCalibrator_GTest.dir/SwingCalibrator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/SwingCalibrator.cpp.s
 .PHONY : SwingCalibrator.cpp.s
 
 SwingDetector.o: SwingDetector.cpp.o
@@ -183,6 +277,7 @@ SwingDetector.o: SwingDetector.cpp.o
 # target to build an object file
 SwingDetector.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/SwingDetector.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingDetector_GTest.dir/build.make CMakeFiles/SwingDetector_GTest.dir/SwingDetector.cpp.o
 .PHONY : SwingDetector.cpp.o
 
 SwingDetector.i: SwingDetector.cpp.i
@@ -191,6 +286,7 @@ SwingDetector.i: SwingDetector.cpp.i
 # target to preprocess a source file
 SwingDetector.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/SwingDetector.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingDetector_GTest.dir/build.make CMakeFiles/SwingDetector_GTest.dir/SwingDetector.cpp.i
 .PHONY : SwingDetector.cpp.i
 
 SwingDetector.s: SwingDetector.cpp.s
@@ -199,6 +295,7 @@ SwingDetector.s: SwingDetector.cpp.s
 # target to generate assembly for a file
 SwingDetector.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/SwingDetector.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingDetector_GTest.dir/build.make CMakeFiles/SwingDetector_GTest.dir/SwingDetector.cpp.s
 .PHONY : SwingDetector.cpp.s
 
 SwingProcessor.o: SwingProcessor.cpp.o
@@ -207,6 +304,7 @@ SwingProcessor.o: SwingProcessor.cpp.o
 # target to build an object file
 SwingProcessor.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/SwingProcessor.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/SwingProcessor.cpp.o
 .PHONY : SwingProcessor.cpp.o
 
 SwingProcessor.i: SwingProcessor.cpp.i
@@ -215,6 +313,7 @@ SwingProcessor.i: SwingProcessor.cpp.i
 # target to preprocess a source file
 SwingProcessor.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/SwingProcessor.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/SwingProcessor.cpp.i
 .PHONY : SwingProcessor.cpp.i
 
 SwingProcessor.s: SwingProcessor.cpp.s
@@ -223,6 +322,7 @@ SwingProcessor.s: SwingProcessor.cpp.s
 # target to generate assembly for a file
 SwingProcessor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/SwingProcessor.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/SwingProcessor.cpp.s
 .PHONY : SwingProcessor.cpp.s
 
 ads1115rpi.o: ads1115rpi.cpp.o
@@ -255,6 +355,7 @@ event_detector.o: event_detector.cpp.o
 # target to build an object file
 event_detector.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/event_detector.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/event_detector.cpp.o
 .PHONY : event_detector.cpp.o
 
 event_detector.i: event_detector.cpp.i
@@ -263,6 +364,7 @@ event_detector.i: event_detector.cpp.i
 # target to preprocess a source file
 event_detector.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/event_detector.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/event_detector.cpp.i
 .PHONY : event_detector.cpp.i
 
 event_detector.s: event_detector.cpp.s
@@ -271,6 +373,7 @@ event_detector.s: event_detector.cpp.s
 # target to generate assembly for a file
 event_detector.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/event_detector.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/event_detector.cpp.s
 .PHONY : event_detector.cpp.s
 
 imureader.o: imureader.cpp.o
@@ -303,6 +406,7 @@ led_controller.o: led_controller.cpp.o
 # target to build an object file
 led_controller.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/led_controller.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/led_controller.cpp.o
 .PHONY : led_controller.cpp.o
 
 led_controller.i: led_controller.cpp.i
@@ -311,6 +415,7 @@ led_controller.i: led_controller.cpp.i
 # target to preprocess a source file
 led_controller.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/led_controller.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/led_controller.cpp.i
 .PHONY : led_controller.cpp.i
 
 led_controller.s: led_controller.cpp.s
@@ -319,6 +424,7 @@ led_controller.s: led_controller.cpp.s
 # target to generate assembly for a file
 led_controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/led_controller.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/led_controller.cpp.s
 .PHONY : led_controller.cpp.s
 
 ledcallback.o: ledcallback.cpp.o
@@ -327,6 +433,7 @@ ledcallback.o: ledcallback.cpp.o
 # target to build an object file
 ledcallback.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/ledcallback.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/ledcallback.cpp.o
 .PHONY : ledcallback.cpp.o
 
 ledcallback.i: ledcallback.cpp.i
@@ -335,6 +442,7 @@ ledcallback.i: ledcallback.cpp.i
 # target to preprocess a source file
 ledcallback.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/ledcallback.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/ledcallback.cpp.i
 .PHONY : ledcallback.cpp.i
 
 ledcallback.s: ledcallback.cpp.s
@@ -343,6 +451,7 @@ ledcallback.s: ledcallback.cpp.s
 # target to generate assembly for a file
 ledcallback.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/ledcallback.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/ledcallback.cpp.s
 .PHONY : ledcallback.cpp.s
 
 main.o: main.cpp.o
@@ -375,6 +484,8 @@ positiondetector.o: positiondetector.cpp.o
 # target to build an object file
 positiondetector.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/positiondetector.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PositionDetector_GTest.dir/build.make CMakeFiles/PositionDetector_GTest.dir/positiondetector.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/positiondetector.cpp.o
 .PHONY : positiondetector.cpp.o
 
 positiondetector.i: positiondetector.cpp.i
@@ -383,6 +494,8 @@ positiondetector.i: positiondetector.cpp.i
 # target to preprocess a source file
 positiondetector.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/positiondetector.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PositionDetector_GTest.dir/build.make CMakeFiles/PositionDetector_GTest.dir/positiondetector.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/positiondetector.cpp.i
 .PHONY : positiondetector.cpp.i
 
 positiondetector.s: positiondetector.cpp.s
@@ -391,6 +504,8 @@ positiondetector.s: positiondetector.cpp.s
 # target to generate assembly for a file
 positiondetector.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/positiondetector.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PositionDetector_GTest.dir/build.make CMakeFiles/PositionDetector_GTest.dir/positiondetector.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/positiondetector.cpp.s
 .PHONY : positiondetector.cpp.s
 
 swingfeedback.o: swingfeedback.cpp.o
@@ -399,6 +514,7 @@ swingfeedback.o: swingfeedback.cpp.o
 # target to build an object file
 swingfeedback.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/swingfeedback.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingFeedback_GTest.dir/build.make CMakeFiles/SwingFeedback_GTest.dir/swingfeedback.cpp.o
 .PHONY : swingfeedback.cpp.o
 
 swingfeedback.i: swingfeedback.cpp.i
@@ -407,6 +523,7 @@ swingfeedback.i: swingfeedback.cpp.i
 # target to preprocess a source file
 swingfeedback.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/swingfeedback.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingFeedback_GTest.dir/build.make CMakeFiles/SwingFeedback_GTest.dir/swingfeedback.cpp.i
 .PHONY : swingfeedback.cpp.i
 
 swingfeedback.s: swingfeedback.cpp.s
@@ -415,7 +532,152 @@ swingfeedback.s: swingfeedback.cpp.s
 # target to generate assembly for a file
 swingfeedback.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rtes_main.dir/build.make CMakeFiles/rtes_main.dir/swingfeedback.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingFeedback_GTest.dir/build.make CMakeFiles/SwingFeedback_GTest.dir/swingfeedback.cpp.s
 .PHONY : swingfeedback.cpp.s
+
+tests/PiezoEventDetector_GTest.o: tests/PiezoEventDetector_GTest.cpp.o
+.PHONY : tests/PiezoEventDetector_GTest.o
+
+# target to build an object file
+tests/PiezoEventDetector_GTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/tests/PiezoEventDetector_GTest.cpp.o
+.PHONY : tests/PiezoEventDetector_GTest.cpp.o
+
+tests/PiezoEventDetector_GTest.i: tests/PiezoEventDetector_GTest.cpp.i
+.PHONY : tests/PiezoEventDetector_GTest.i
+
+# target to preprocess a source file
+tests/PiezoEventDetector_GTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/tests/PiezoEventDetector_GTest.cpp.i
+.PHONY : tests/PiezoEventDetector_GTest.cpp.i
+
+tests/PiezoEventDetector_GTest.s: tests/PiezoEventDetector_GTest.cpp.s
+.PHONY : tests/PiezoEventDetector_GTest.s
+
+# target to generate assembly for a file
+tests/PiezoEventDetector_GTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PiezoEventDetector_GTest.dir/build.make CMakeFiles/PiezoEventDetector_GTest.dir/tests/PiezoEventDetector_GTest.cpp.s
+.PHONY : tests/PiezoEventDetector_GTest.cpp.s
+
+tests/PositionDetector_GTest.o: tests/PositionDetector_GTest.cpp.o
+.PHONY : tests/PositionDetector_GTest.o
+
+# target to build an object file
+tests/PositionDetector_GTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PositionDetector_GTest.dir/build.make CMakeFiles/PositionDetector_GTest.dir/tests/PositionDetector_GTest.cpp.o
+.PHONY : tests/PositionDetector_GTest.cpp.o
+
+tests/PositionDetector_GTest.i: tests/PositionDetector_GTest.cpp.i
+.PHONY : tests/PositionDetector_GTest.i
+
+# target to preprocess a source file
+tests/PositionDetector_GTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PositionDetector_GTest.dir/build.make CMakeFiles/PositionDetector_GTest.dir/tests/PositionDetector_GTest.cpp.i
+.PHONY : tests/PositionDetector_GTest.cpp.i
+
+tests/PositionDetector_GTest.s: tests/PositionDetector_GTest.cpp.s
+.PHONY : tests/PositionDetector_GTest.s
+
+# target to generate assembly for a file
+tests/PositionDetector_GTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PositionDetector_GTest.dir/build.make CMakeFiles/PositionDetector_GTest.dir/tests/PositionDetector_GTest.cpp.s
+.PHONY : tests/PositionDetector_GTest.cpp.s
+
+tests/SwingCalibrator_GTest.o: tests/SwingCalibrator_GTest.cpp.o
+.PHONY : tests/SwingCalibrator_GTest.o
+
+# target to build an object file
+tests/SwingCalibrator_GTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingCalibrator_GTest.dir/build.make CMakeFiles/SwingCalibrator_GTest.dir/tests/SwingCalibrator_GTest.cpp.o
+.PHONY : tests/SwingCalibrator_GTest.cpp.o
+
+tests/SwingCalibrator_GTest.i: tests/SwingCalibrator_GTest.cpp.i
+.PHONY : tests/SwingCalibrator_GTest.i
+
+# target to preprocess a source file
+tests/SwingCalibrator_GTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingCalibrator_GTest.dir/build.make CMakeFiles/SwingCalibrator_GTest.dir/tests/SwingCalibrator_GTest.cpp.i
+.PHONY : tests/SwingCalibrator_GTest.cpp.i
+
+tests/SwingCalibrator_GTest.s: tests/SwingCalibrator_GTest.cpp.s
+.PHONY : tests/SwingCalibrator_GTest.s
+
+# target to generate assembly for a file
+tests/SwingCalibrator_GTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingCalibrator_GTest.dir/build.make CMakeFiles/SwingCalibrator_GTest.dir/tests/SwingCalibrator_GTest.cpp.s
+.PHONY : tests/SwingCalibrator_GTest.cpp.s
+
+tests/SwingDetector_GTest.o: tests/SwingDetector_GTest.cpp.o
+.PHONY : tests/SwingDetector_GTest.o
+
+# target to build an object file
+tests/SwingDetector_GTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingDetector_GTest.dir/build.make CMakeFiles/SwingDetector_GTest.dir/tests/SwingDetector_GTest.cpp.o
+.PHONY : tests/SwingDetector_GTest.cpp.o
+
+tests/SwingDetector_GTest.i: tests/SwingDetector_GTest.cpp.i
+.PHONY : tests/SwingDetector_GTest.i
+
+# target to preprocess a source file
+tests/SwingDetector_GTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingDetector_GTest.dir/build.make CMakeFiles/SwingDetector_GTest.dir/tests/SwingDetector_GTest.cpp.i
+.PHONY : tests/SwingDetector_GTest.cpp.i
+
+tests/SwingDetector_GTest.s: tests/SwingDetector_GTest.cpp.s
+.PHONY : tests/SwingDetector_GTest.s
+
+# target to generate assembly for a file
+tests/SwingDetector_GTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingDetector_GTest.dir/build.make CMakeFiles/SwingDetector_GTest.dir/tests/SwingDetector_GTest.cpp.s
+.PHONY : tests/SwingDetector_GTest.cpp.s
+
+tests/SwingFeedback_GTest.o: tests/SwingFeedback_GTest.cpp.o
+.PHONY : tests/SwingFeedback_GTest.o
+
+# target to build an object file
+tests/SwingFeedback_GTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingFeedback_GTest.dir/build.make CMakeFiles/SwingFeedback_GTest.dir/tests/SwingFeedback_GTest.cpp.o
+.PHONY : tests/SwingFeedback_GTest.cpp.o
+
+tests/SwingFeedback_GTest.i: tests/SwingFeedback_GTest.cpp.i
+.PHONY : tests/SwingFeedback_GTest.i
+
+# target to preprocess a source file
+tests/SwingFeedback_GTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingFeedback_GTest.dir/build.make CMakeFiles/SwingFeedback_GTest.dir/tests/SwingFeedback_GTest.cpp.i
+.PHONY : tests/SwingFeedback_GTest.cpp.i
+
+tests/SwingFeedback_GTest.s: tests/SwingFeedback_GTest.cpp.s
+.PHONY : tests/SwingFeedback_GTest.s
+
+# target to generate assembly for a file
+tests/SwingFeedback_GTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingFeedback_GTest.dir/build.make CMakeFiles/SwingFeedback_GTest.dir/tests/SwingFeedback_GTest.cpp.s
+.PHONY : tests/SwingFeedback_GTest.cpp.s
+
+tests/SwingProcessor_GTest.o: tests/SwingProcessor_GTest.cpp.o
+.PHONY : tests/SwingProcessor_GTest.o
+
+# target to build an object file
+tests/SwingProcessor_GTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/tests/SwingProcessor_GTest.cpp.o
+.PHONY : tests/SwingProcessor_GTest.cpp.o
+
+tests/SwingProcessor_GTest.i: tests/SwingProcessor_GTest.cpp.i
+.PHONY : tests/SwingProcessor_GTest.i
+
+# target to preprocess a source file
+tests/SwingProcessor_GTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/tests/SwingProcessor_GTest.cpp.i
+.PHONY : tests/SwingProcessor_GTest.cpp.i
+
+tests/SwingProcessor_GTest.s: tests/SwingProcessor_GTest.cpp.s
+.PHONY : tests/SwingProcessor_GTest.s
+
+# target to generate assembly for a file
+tests/SwingProcessor_GTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwingProcessor_GTest.dir/build.make CMakeFiles/SwingProcessor_GTest.dir/tests/SwingProcessor_GTest.cpp.s
+.PHONY : tests/SwingProcessor_GTest.cpp.s
 
 # Help Target
 help:
@@ -425,6 +687,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
+	@echo "... PiezoEventDetector_GTest"
+	@echo "... PositionDetector_GTest"
+	@echo "... SwingCalibrator_GTest"
+	@echo "... SwingDetector_GTest"
+	@echo "... SwingFeedback_GTest"
+	@echo "... SwingProcessor_GTest"
 	@echo "... rtes_main"
 	@echo "... Icm20948driver.o"
 	@echo "... Icm20948driver.i"
@@ -462,6 +731,24 @@ help:
 	@echo "... swingfeedback.o"
 	@echo "... swingfeedback.i"
 	@echo "... swingfeedback.s"
+	@echo "... tests/PiezoEventDetector_GTest.o"
+	@echo "... tests/PiezoEventDetector_GTest.i"
+	@echo "... tests/PiezoEventDetector_GTest.s"
+	@echo "... tests/PositionDetector_GTest.o"
+	@echo "... tests/PositionDetector_GTest.i"
+	@echo "... tests/PositionDetector_GTest.s"
+	@echo "... tests/SwingCalibrator_GTest.o"
+	@echo "... tests/SwingCalibrator_GTest.i"
+	@echo "... tests/SwingCalibrator_GTest.s"
+	@echo "... tests/SwingDetector_GTest.o"
+	@echo "... tests/SwingDetector_GTest.i"
+	@echo "... tests/SwingDetector_GTest.s"
+	@echo "... tests/SwingFeedback_GTest.o"
+	@echo "... tests/SwingFeedback_GTest.i"
+	@echo "... tests/SwingFeedback_GTest.s"
+	@echo "... tests/SwingProcessor_GTest.o"
+	@echo "... tests/SwingProcessor_GTest.i"
+	@echo "... tests/SwingProcessor_GTest.s"
 .PHONY : help
 
 

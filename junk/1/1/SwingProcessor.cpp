@@ -42,9 +42,7 @@ void SwingProcessor::onPositionReady(bool upright)
 void SwingProcessor::onForceReady(bool correctForce)
 {
     if (!correctForce) {
-        // Dip-only event — ignore completely while active.
-        // Motor vibration feeds back to the piezo and causes false dips;
-        // we don't want those to kill the motor mid-swing.
+        if (isActive_ && mag_callback_) mag_callback_(0.f);
         return;
     }
 

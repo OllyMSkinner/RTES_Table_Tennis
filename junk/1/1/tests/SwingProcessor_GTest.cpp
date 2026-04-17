@@ -4,7 +4,7 @@
 static void sendGoodSample(SwingProcessor& proc, int n = 1)
 {
     for (int i = 0; i < n; ++i)
-        proc.onSample(-9.906f, 0.488f, 1.278f, 1.0f, 0.0f);
+        proc.onSample(9.906f, -0.488f, 1.278f, 1.0f, 0.0f);
 }
 
 TEST(test_swingprocessor, checkforce_alone_does_not_fire_magnitude)

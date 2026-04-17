@@ -5,17 +5,16 @@
 #include <chrono>
 #include <thread>
 
-// All levels pulse the motor at 100% duty — the pattern (duration/count)
-// encodes intensity, not the duty cycle value. A 10 ms sleep lets the
-// worker thread start; every pattern lasts at least 180 ms so the motor
-// is still running when we sample it.
+// rampUp takes 3 × 30 ms = 90 ms to reach MAX_DUTY (80%).
+// Sleep 100 ms so we sample after the ramp completes but well before
+// the pattern ends (shortest hold is 180 ms for LOW/MEDIUM, 450 ms for HIGH).
 TEST(test_swingfeedback, checkhighest_level_drives_motor)
 {
     RPI_PWM pwm;
     SwingFeedback fb(pwm);
     fb.onLevel("Highest Duty Cycle");
-    std::this_thread::sleep_for(std::chrono::milliseconds(10));
-    EXPECT_NEAR(pwm.getDutyCycle(), 100.f, 0.1f);
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    EXPECT_NEAR(pwm.getDutyCycle(), 80.f, 0.1f);
 }
 
 TEST(test_swingfeedback, checkmedium_level_drives_motor)
@@ -23,8 +22,8 @@ TEST(test_swingfeedback, checkmedium_level_drives_motor)
     RPI_PWM pwm;
     SwingFeedback fb(pwm);
     fb.onLevel("Medium Duty Cycle");
-    std::this_thread::sleep_for(std::chrono::milliseconds(10));
-    EXPECT_NEAR(pwm.getDutyCycle(), 100.f, 0.1f);
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    EXPECT_NEAR(pwm.getDutyCycle(), 80.f, 0.1f);
 }
 
 TEST(test_swingfeedback, checklow_level_drives_motor)
@@ -32,8 +31,8 @@ TEST(test_swingfeedback, checklow_level_drives_motor)
     RPI_PWM pwm;
     SwingFeedback fb(pwm);
     fb.onLevel("Low Duty Cycle");
-    std::this_thread::sleep_for(std::chrono::milliseconds(10));
-    EXPECT_NEAR(pwm.getDutyCycle(), 100.f, 0.1f);
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    EXPECT_NEAR(pwm.getDutyCycle(), 80.f, 0.1f);
 }
 
 TEST(test_swingfeedback, checkzero_level_does_not_start_window)

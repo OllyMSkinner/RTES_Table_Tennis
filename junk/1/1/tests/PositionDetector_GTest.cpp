@@ -4,7 +4,7 @@
 static void sendGoodSample(PositionDetector& det, int n = 1)
 {
     for (int i = 0; i < n; ++i)
-        det.onSample(-9.906f, 0.488f, 1.278f, 1.0f, 0.0f);
+        det.onSample(9.906f, -0.488f, 1.278f, 1.0f, 0.0f);
 }
 
 static void sendBadSample(PositionDetector& det, int n = 1)
