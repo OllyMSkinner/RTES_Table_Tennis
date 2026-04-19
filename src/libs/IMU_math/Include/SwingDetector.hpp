@@ -1,5 +1,12 @@
 #pragma once
 
+// SOLID principles:
+// S - SwingDetector categorised the swing speed intro 3 levels, and creates a callback when 
+// the level changes. This actually does 2 things but it is very small so we decided to wrap 
+// them up with each other.
+// I - The calculation of the level classification in made private as other caller doesn't need to know.
+// D - The std::function is an abstraction which allows for any inputs to the function.
+
 #include <functional>
 
 // Classifies linear acceleration magnitude into duty cycle levels.
