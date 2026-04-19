@@ -1,6 +1,6 @@
-// This file implements the LED controller behaviour.
-// It keeps LED state changes, timed flashing, and hardware output updates
-// inside one implementation unit.
+/// @brief This file implements the LED controller behaviour.
+/// @brief It keeps LED state changes, timed flashing, and hardware output updates
+/// @brief inside one implementation unit.
 
 #include "led_controller.h"
 
@@ -9,7 +9,7 @@
 #include <cstdio>
 
 namespace {
-// Declares a helper function for accessing the GPIO chip instance.
+/// @brief Declares a helper function for accessing the GPIO chip instance.
 gpiod::chip& getChip(int chipNumber)
 {
     static std::unique_ptr<gpiod::chip> chip0;
@@ -20,7 +20,7 @@ gpiod::chip& getChip(int chipNumber)
 }
 }
 
-// Initialises the LED controller, clears the LED state, and updates the output.
+/// @brief Initialises the LED controller, clears the LED state, and updates the output.
 LEDController::LEDController(LEDControllerSettings settings)
     : SimpleLEDController(settings.greenGpio, settings.chipNumber)
 {
@@ -29,13 +29,13 @@ LEDController::LEDController(LEDControllerSettings settings)
     updateOutputs();
 }
 
-// Turns all LED output off when the controller is destroyed.
+/// @brief Turns all LED output off when the controller is destroyed.
 LEDController::~LEDController()
 {
     allOff();
 }
 
-// Sets the green LED state directly and updates the output.
+/// @brief Sets the green LED state directly and updates the output.
 void LEDController::set(bool on)
 {
     std::printf("[led] set(%s)\n", on ? "true" : "false");
@@ -45,7 +45,7 @@ void LEDController::set(bool on)
     updateOutputs();
 }
 
-// Turns the green LED on and clears any flash timing.
+/// @brief Turns the green LED on and clears any flash timing.
 void LEDController::greenOn()
 {
     greenActive_ = true;
@@ -53,7 +53,7 @@ void LEDController::greenOn()
     updateOutputs();
 }
 
-// Turns the green LED off and clears any flash timing.
+/// @brief Turns the green LED off and clears any flash timing.
 void LEDController::greenOff()
 {
     greenActive_ = false;
@@ -61,14 +61,14 @@ void LEDController::greenOff()
     updateOutputs();
 }
 
-// Turns all LED output off and clears any flash timing.
+/// @brief Turns all LED output off and clears any flash timing.
 void LEDController::allOff()
 {
     greenActive_ = false;
     greenOffTime_ = std::chrono::steady_clock::time_point{};
     updateOutputs();
 }
-// Turns the green LED on for a set time and stores when it should switch off.
+/// @brief Turns the green LED on for a set time and stores when it should switch off.
 void LEDController::flashGreen(int flashMs)
 {
     greenActive_ = true;
@@ -76,7 +76,7 @@ void LEDController::flashGreen(int flashMs)
     updateOutputs();
 }
 
-// Checks whether the flash time has ended and switches the LED off if needed.
+/// @brief Checks whether the flash time has ended and switches the LED off if needed.
 void LEDController::service()
 {
     if (greenActive_ &&
@@ -88,7 +88,7 @@ void LEDController::service()
     }
 }
 
-// Updates the physical LED output to match the current stored state.
+/// @brief Updates the physical LED output to match the current stored state.
 void LEDController::updateOutputs()
 {
     SimpleLEDController::set(greenActive_);
