@@ -7,5 +7,6 @@ target_include_directories(motor_lib PUBLIC
 )
 
 target_link_libraries(motor_lib
-    PRIVATE pthread    # implementation detail — threads used internally only
+    PUBLIC  PkgConfig::GPIOD    # rpi_pwm.h exposes gpiod types
+    PRIVATE pthread
 )

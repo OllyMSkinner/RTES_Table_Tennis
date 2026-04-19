@@ -9,5 +9,6 @@ target_include_directories(imu_lib PUBLIC
 
 target_link_libraries(imu_lib
     PUBLIC  PkgConfig::GPIOD      # imureader.hpp exposes gpiod types
+    PUBLIC  gpiod                 # imureader.cpp uses the C gpiod API directly
     PRIVATE yaml-cpp pthread      # implementation details only
 )
