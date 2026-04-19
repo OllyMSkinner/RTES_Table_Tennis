@@ -5,14 +5,14 @@
 //
 //
 // SOLID principles:
-//   S - The settings struct is responsible only for configuration data, while the
-//   ADS1115rpi class is responsible for managing ADC communication and sample
-//   delivery.
-//   O - Client behaviour can be extended through the callback interface without
-//   changing the ADC reading logic itself.
+//   S -   The settings struct is responsible only for configuration data, while the
+//         ADS1115rpi class is responsible for managing ADC communication and sample
+//         delivery.
+//   O -   Client behaviour can be extended through the callback interface without
+//         changing the ADC reading logic itself.
 //   I/D - Client code interacts with this class through a small public API and a
-//   narrow callback interface rather than depending on low-level I2C or GPIO
-//   operations directly.
+//         narrow callback interface rather than depending on low-level I2C or GPIO
+//         operations directly.
 
 
 #ifndef __ADS1115RPI_H
