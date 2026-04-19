@@ -25,9 +25,8 @@
 
 // Register addresses and constants for the ICM-20948 IMU and onboard magnetometer.
 
-// ─────────────────────────────────────────────
 //  Register map
-// ─────────────────────────────────────────────
+
 
 #define ICM20948_I2C_ADDR       0x69
 #define ICM20948_MAGN_I2C_ADDR  0x0C
