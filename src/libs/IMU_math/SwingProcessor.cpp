@@ -2,6 +2,7 @@
 
 #include <cmath>
 
+// Initialise the deadband and embedded gravity-bias calibrator.
 SwingProcessor::SwingProcessor(float accel_deadband, int calib_samples, int recal_samples)
     : accel_deadband_(accel_deadband),
       calibrator_(calib_samples, recal_samples)
