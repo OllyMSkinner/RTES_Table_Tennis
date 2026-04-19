@@ -1,5 +1,14 @@
 #pragma once
 
+// SOLID Principles:
+// S - This file has exactly one function - to remove the gravitational bias from the 
+// acceleration value of each axis.
+// I - The accumulate() is kept private as it is only used for moving average calibration, 
+// other caller doesn't need it. 
+// D - The std::function, which is an abstraction, allows the SwingCalibrator to do 
+// its job without needing to know the caller or the results.
+
+
 #include <functional>
 
 // Manages gravity-bias calibration for the swing detector.
