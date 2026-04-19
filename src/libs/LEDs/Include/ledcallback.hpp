@@ -1,5 +1,5 @@
 /*
-    This header declares a simple LED controller base class. This is to control the LED associated with the Peizo Event Detecion.
+    This header declares a simple LED controller base class. This is to control the LED associated with the IMU swing position.
 
     Design intention:
     - Single Responsibility:
