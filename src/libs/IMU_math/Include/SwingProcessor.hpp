@@ -48,8 +48,9 @@ private:
     MagnitudeCallback     mag_callback_;
     PositionStateCallback pos_callback_;
 
-    bool isArmed_  = false;   // position confirmed, ready for piezo
-    bool isActive_ = false;   // gate open, motor feedback running
+    bool isArmed_      = false;  // position confirmed, ready for piezo
+    bool isActive_     = false;  // gate open, motor feedback running
+    bool hasLeftStart_ = false;  // paddle has left the starting position since activation
 
     static constexpr int COOLDOWN_MS = 500;
     std::chrono::steady_clock::time_point reset_time_{};

@@ -32,11 +32,15 @@ void SwingProcessor::onPositionReady(bool upright)
     if (upright && !isArmed_) {
         isArmed_ = true;
         calibrator_.triggerRecal();
-    } else if (!upright && isArmed_ && !isActive_) {
-        // Left position before piezo — disarm
-        isArmed_ = false;
+    } else if (!upright && isArmed_) {
+        if (!isActive_) {
+            // Left position before piezo — disarm
+            isArmed_ = false;
+        } else {
+            // Left position after piezo — swing has begun
+            hasLeftStart_ = true;
+        }
     }
-    // If already active (mid-swing), leaving position is expected — don't disarm
 }
 
 void SwingProcessor::onForceReady(bool correctForce)
@@ -52,14 +56,16 @@ void SwingProcessor::onForceReady(bool correctForce)
 
     if (isActive_) return;  // already swinging, ignore re-triggers
 
-    isActive_ = true;
+    isActive_     = true;
+    hasLeftStart_ = false;  // must leave start position before magnitude is measured
 }
 
 void SwingProcessor::reset()
 {
-    isArmed_    = false;
-    isActive_   = false;
-    reset_time_ = std::chrono::steady_clock::now();
+    isArmed_      = false;
+    isActive_     = false;
+    hasLeftStart_ = false;
+    reset_time_   = std::chrono::steady_clock::now();
 }
 
 void SwingProcessor::onSample(float ax, float ay, float az,
@@ -68,6 +74,7 @@ void SwingProcessor::onSample(float ax, float ay, float az,
     PositionDetector::onSample(ax, ay, az, mx, my);
 
     if (!isActive_) return;
+    if (!hasLeftStart_) return;  // don't measure until paddle leaves start position
     if (calibrator_.feed(ax, ay, az)) return;
 
     float lin_ax = ax - calibrator_.biasX();

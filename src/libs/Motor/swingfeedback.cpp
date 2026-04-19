@@ -128,6 +128,10 @@ void SwingFeedback::worker()
     if (reset_cb_) {
         reset_cb_();
     }
+
+    // Clear any level that accumulated during playback so it doesn't
+    // contaminate the next swing.
+    pending_level_.store(0);
 }
 
 void SwingFeedback::onLevel(const char* level)
@@ -135,14 +139,20 @@ void SwingFeedback::onLevel(const char* level)
     if (!level) return;
 
     const int rank = levelRank(level);
-    if (rank <= 0) return;
 
-    int current = pending_level_.load();
-    while (rank > current && !pending_level_.compare_exchange_weak(current, rank)) {
+    if (rank <= 0) {
+        // Level dropped to zero — swing has ended. Fire the worker now so it
+        // plays the actual peak that was accumulated, not just the first edge.
+        if (!busy_.load() && pending_level_.load() > 0) {
+            std::thread(&SwingFeedback::worker, this).detach();
+        }
+        return;
     }
 
-    if (!busy_.load()) {
-        std::thread(&SwingFeedback::worker, this).detach();
+    // Accumulate the highest level reached during the swing.
+    // Do NOT spawn the worker yet — wait for the swing to end (rank == 0 above).
+    int current = pending_level_.load();
+    while (rank > current && !pending_level_.compare_exchange_weak(current, rank)) {
     }
 }
 
@@ -150,6 +160,7 @@ void SwingFeedback::forceOff()
 {
     busy_since_ms_.store(0);
     busy_.store(false);
+    pending_level_.store(0);
     pwm_.setDutyCycle(0.0f);
     if (reset_cb_) reset_cb_();
 }
