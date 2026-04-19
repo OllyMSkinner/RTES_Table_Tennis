@@ -224,6 +224,7 @@ namespace icm20948
         ICM20948_I2C(unsigned           i2c_bus,
                      unsigned           i2c_address = ICM20948_I2C_ADDR,
                      icm20948::settings settings    = icm20948::settings());
+        ~ICM20948_I2C();
 
         bool init();
         bool reset();

@@ -152,24 +152,8 @@ namespace icm20948
                         }
                     }
                 }
-            } else if (key == "magnetometer") {
-                for (auto m = it->second.begin(); m != it->second.end(); ++m) {
-                    if (m->first.as<std::string>() == "mode") {
-                        switch (m->second.as<unsigned>()) {
-                            case 0:  magn.mode = MAGN_SHUTDOWN;  break;
-                            case 1:  magn.mode = MAGN_SINGLE;    break;
-                            case 2:  magn.mode = MAGN_10HZ;      break;
-                            case 3:  magn.mode = MAGN_20HZ;      break;
-                            case 4:  magn.mode = MAGN_50HZ;      break;
-                            case 5:  magn.mode = MAGN_100HZ;     break;
-                            case 6:  magn.mode = MAGN_SELF_TEST; break;
-                            default:
-                                throw std::runtime_error(
-                                    "Invalid mode chosen for magnetometer in YAML config");
-                        }
-                    }
-                }
             }
+            // Magnetometer YAML config intentionally ignored for stability testing.
         }
     }
 
@@ -208,6 +192,14 @@ namespace icm20948
         magn[0]  = magn[1]  = magn[2]  = 0.0f;
     }
 
+    ICM20948_I2C::~ICM20948_I2C()
+    {
+        if (_i2c_fd >= 0) {
+            ::close(_i2c_fd);
+            _i2c_fd = -1;
+        }
+    }
+
     bool ICM20948_I2C::init()
     {
         uint8_t device_id = 0;
@@ -221,14 +213,15 @@ namespace icm20948
         success &= set_settings();
         success &= _enable_data_ready_interrupt();
 
-        bool magn_ok = false;
-        for (int i = 0; i < 3; ++i) {
-            magn_ok = _magnetometer_init();
-            if (magn_ok) break;
-        }
-        if (!magn_ok) {
-            std::cerr << "[IMU] Magnetometer init failed, continuing without it\n";
-        }
+        // Magnetometer intentionally disabled for stability testing.
+        // bool magn_ok = false;
+        // for (int i = 0; i < 3; ++i) {
+        //     magn_ok = _magnetometer_init();
+        //     if (magn_ok) break;
+        // }
+        // if (!magn_ok) {
+        //     std::cerr << "[IMU] Magnetometer init failed, continuing without it\n";
+        // }
 
         return success;
     }
@@ -325,7 +318,12 @@ namespace icm20948
     {
         if (!read_accel_gyro()) return false;
 
-        if (!read_magn()) magn[0] = magn[1] = magn[2] = 0.0f;
+        // Magnetometer intentionally disabled for stability testing.
+        // if (!read_magn()) magn[0] = magn[1] = magn[2] = 0.0f;
+
+        magn[0] = 0.0f;
+        magn[1] = 0.0f;
+        magn[2] = 0.0f;
 
         sample.ax = accel[0]; sample.ay = accel[1]; sample.az = accel[2];
         sample.gx = gyro[0];  sample.gy = gyro[1];  sample.gz = gyro[2];
@@ -501,7 +499,9 @@ namespace icm20948
         txn.msgs  = msgs;
         txn.nmsgs = 2;
 
-        return ::ioctl(_i2c_fd, I2C_RDWR, &txn) == 2;
+        bool ok = ::ioctl(_i2c_fd, I2C_RDWR, &txn) == 2;
+        if (ok) ::usleep(5000);
+        return ok;
     }
 
     bool ICM20948_I2C::_write_bit(uint8_t bank, uint8_t reg,
@@ -547,7 +547,9 @@ namespace icm20948
         txn.msgs  = msgs;
         txn.nmsgs = 2;
 
-        return ::ioctl(_i2c_fd, I2C_RDWR, &txn) == 2;
+        bool ok = ::ioctl(_i2c_fd, I2C_RDWR, &txn) == 2;
+        if (ok) ::usleep(5000);
+        return ok;
     }
 
     bool ICM20948_I2C::_write_mag_byte(uint8_t mag_reg, uint8_t byte)
@@ -600,10 +602,13 @@ namespace icm20948
                           ICM20948_I2C_SLV4_DI_ADDR, byte);
     }
 
-    bool ICM20948_I2C::check_DRDY_INT(){
+    bool ICM20948_I2C::check_DRDY_INT()
+    {
         uint8_t int_status;
-        
-        if (!_read_byte(ICM20948_INT_STATUS_1_BANK,ICM20948_INT_STATUS_1_ADDR,int_status)){
+
+        if (!_read_byte(ICM20948_INT_STATUS_1_BANK,
+                        ICM20948_INT_STATUS_1_ADDR,
+                        int_status)) {
             std::cerr << "Unable to read INT_STATUS" << std::endl;
             return false;
         }
