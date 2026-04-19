@@ -67,7 +67,7 @@ int main()
     ADS1115rpi ads;
 
     try {
-        ads.start(makeDefaultADS1115Settings(), false);  // will init device, but we won't rely on its worker thread
+        ads.start();  // will init device, but we won't rely on its worker thread
     } catch (...) {
         std::cerr << "ADS init failed\n";
         return EXIT_FAILURE;
@@ -88,17 +88,8 @@ int main()
     // ===== MAIN LOOP (SINGLE I²C OWNER) =====
     while (running)
     {
-        // ---- IMU READ ----
-        icm20948::IMUSample sample{};
-        if (reader.getIMU().read_sample(sample))   // <-- direct call, no thread
-        {
-            feedback.checkTimeout();
 
-            processor(sample.ax, sample.ay, sample.az,
-                      sample.gx, sample.gy, sample.gz,
-                      sample.mx, sample.my);
-        }
-
+        
         // ---- ADS READ ----
         int raw = ads.readOnce();  // <-- YOU NEED THIS METHOD (see below)
         if (raw >= 0)
