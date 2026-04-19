@@ -4,6 +4,7 @@
     manages timing and time-outs, and resets the output when needed.
 */
 
+
 #include "swingfeedback.h"
 
 #include <atomic>
