@@ -37,3 +37,8 @@ The ICM-20948 asserts a rising edge on the INT pin when a new sample is ready. T
 [Insert photograph — wiring connections]
 
 [Insert photograph — 3D printed enclosure]
+
+## Acknowledgements
+
+The ICM-20948 IMU driver was adapted from the implementation written by the SnAIRbeats team (ENG 5220, University of Glasgow, 2025), available at:
+https://github.com/alepgr/SnAIRbeats/tree/main
