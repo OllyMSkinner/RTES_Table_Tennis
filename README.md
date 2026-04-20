@@ -121,18 +121,20 @@ ctest --test-dir build --output-on-failure
 ---
 
 ## Project Structure
+```
 RTES_Table_Tennis/
 ├── src/
 │   ├── main.cpp
 │   ├── CMakeLists.txt
 │   └── libs/
-│       ├── IMU/          # ICM-20948 driver and threaded reader
-│       ├── IMU_math/     # Position detection, swing analysis, calibration
-│       ├── LEDs/         # GPIO-backed LED controllers
-│       ├── Motor/        # Software PWM and swing feedback patterns
-│       └── Piezo/        # ADS1115 ADC driver and event detector
-├── test/                 # GTest unit tests
+│       ├── IMU/        # ICM-20948 driver and threaded reader
+│       ├── IMU_math/   # Position detection, swing analysis, calibration
+│       ├── LEDs/       # GPIO-backed LED controllers
+│       ├── Motor/      # Software PWM and swing feedback patterns
+│       └── Piezo/      # ADS1115 ADC driver and event detector
+├── test/               # GTest unit tests
 └── images/
+```
 
 ---
 
