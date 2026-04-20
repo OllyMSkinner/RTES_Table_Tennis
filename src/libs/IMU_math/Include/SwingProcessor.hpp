@@ -4,6 +4,9 @@
 
 #pragma once
 
+/** SOLID Principles:
+* D - MagnitudeCallback and PositionStateCallback are std::function output abstractions. */
+
 #include "SwingCalibrator.hpp"
 #include "positiondetector.hpp"
 
@@ -12,9 +15,9 @@
 
 /// Defines the I2C bus and the main constants used for calibration, recalibration, and acceleration deadband control.
 static constexpr unsigned I2C_BUS        = 1;
-static constexpr int      CALIB_SAMPLES  = 50;   
-static constexpr int      RECAL_SAMPLES  = 20;  
-static constexpr float    ACCEL_DEADBAND = 1.0f;  
+static constexpr int      CALIB_SAMPLES  = 50;   /// ~0.5s at 100Hz — startup bias
+static constexpr int      RECAL_SAMPLES  = 20;   /// ~0.2s recal on position confirm
+static constexpr float    ACCEL_DEADBAND = 1.0f;  /// raised to reject motor EMI noise floor
 
 /** Gate logic:
    1. When the correct start position is held, isArmed_ becomes true and the bias is recalibrated.
@@ -56,10 +59,11 @@ private:
     MagnitudeCallback     mag_callback_;
     PositionStateCallback pos_callback_;
 
-    bool isArmed_  = false;   /// position confirmed, ready for piezo
-    bool isActive_ = false;   /// gate open, motor feedback running
-    bool hasLeftStart_ = false;
-    
+    bool isArmed_      = false;  /// position confirmed, ready for piezo
+    bool isActive_     = false;  /// gate open, motor feedback running
+    bool hasLeftStart_ = false;  /// paddle has left the starting position since activation
+
+
     static constexpr int COOLDOWN_MS = 500;
     std::chrono::steady_clock::time_point reset_time_{};
 
