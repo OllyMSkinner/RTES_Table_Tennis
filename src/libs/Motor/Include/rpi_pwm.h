@@ -4,6 +4,8 @@
   *  stopping PWM generation, allow client code to update the duty cycle
   *  without needing to manage any GPIO or timing details, and internally
   *  handle the GPIO line request and timing loop. 
+  *
+  *
   * SOLID principles:
   *   S - this class his only responsible for generating PWM on one GPIO line. Higher
   *       level classification decides when feedback should happen and why the duty cycle changes. 
