@@ -40,7 +40,8 @@ bool SwingCalibrator::feed(float ax, float ay, float az)
 void SwingCalibrator::triggerRecal()
 {
     /// Ignore if a calibration pass is already in progress.
-    if (state_ != State::READY) return;  // already calibrating
+    if (state_ != State::READY) return;  
+    /// already calibrating
     
     /// Reset accumulators and enter recalibration state.
     state_ = State::RECAL;
