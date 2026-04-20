@@ -30,10 +30,9 @@ DLPF                : enabled
 The ICM-20948 asserts a rising edge on the INT pin when a new sample is ready. This is wired to GPIO 27 on the Raspberry Pi.
 
 ## Hardware Assembly
-
 <p align="center">
-  <img src="images/IMG_5714.jpg" width="400" alt="Hardware setup"/>
-  <img src="images/IMG_6629.JPG" width="400" alt="Hardware setup"/>
+  <img src="images/IMG_5714.jpg" alt="Haptic Ping Logo" width="250"/>
+  <img src="images/IMG_6629.jpg" alt="Haptic Ping Logo" width="250"/>
 </p>
 
 ## Acknowledgements
