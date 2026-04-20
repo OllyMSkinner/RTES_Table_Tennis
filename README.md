@@ -25,7 +25,8 @@ University of Glasgow, 2026
 | ADS1115 ADC | 1× | [The Pi Hut](https://thepihut.com/products/adafruit-ads1115-16-bit-adc) | ~£14.40 |
 | Piezoelectric Sensor | 1× | [RS Online](https://uk.rs-online.com/web/p/piezo-buzzers/8377840) | ~£2.50 |
 | LEDs | 2× | — | ~£0.45 |
-
+| Table Tennis Bat | 1× | — | ~£70 |
+| AA Batteries | 3× | — | ~£0.61 |
 
 ---
 
