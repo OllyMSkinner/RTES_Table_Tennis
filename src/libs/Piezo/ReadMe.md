@@ -21,8 +21,9 @@
 
 
 ## Hardware Assembly
-images/bat with piezo image.jpeg
-images/ads1115 front view.jpeg
+<img width="1536" height="2048" alt="bat with piezo image" src="https://github.com/user-attachments/assets/905d2ba3-e871-4899-8160-cf823f02477e" />
+<img width="1536" height="2048" alt="ads1115 front view" src="https://github.com/user-attachments/assets/44e4d61b-a571-47fa-87b1-4d7ba9cb8323" />
+
 
 
 ## Acknowledgements 
