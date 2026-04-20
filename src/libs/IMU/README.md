@@ -25,18 +25,16 @@ Gyroscope range     : ±250 DPS
 Magnetometer mode   : 100Hz continuous
 DLPF                : enabled
 
-
 ## Data-Ready Interrupt
 
 The ICM-20948 asserts a rising edge on the INT pin when a new sample is ready. This is wired to GPIO 27 on the Raspberry Pi.
 
 ## Hardware Assembly
 
-[Insert photograph — IMU mounted on bat]
-
-[Insert photograph — wiring connections]
-
-[Insert photograph — 3D printed enclosure]
+<p align="center">
+  <img src="images/IMG_5714.jpg" width="400" alt="Hardware setup"/>
+  <img src="images/IMG_6629.JPG" width="400" alt="Hardware setup"/>
+</p>
 
 ## Acknowledgements
 
