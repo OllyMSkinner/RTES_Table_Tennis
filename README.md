@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/LOGO_EXT.jpeg" alt="Haptic Ping Logo" width="250"/>
+  <img src="images/LOGO_EXT.jpeg" alt="Haptic Ping Logo" width="350"/>
 </p>
 
 # Haptic Ping
@@ -106,7 +106,7 @@ This can be adjusted in the main.cpp.
 Haptic Ping runs on Linux (Raspberry Pi OS) and is not compatible with Windows.  
 Prior to installing the required libraries, the system package list should be updated using:  
 ```bash
-sudo apt update 
+sudo apt update
 ```
 
 ### Enable I2C
