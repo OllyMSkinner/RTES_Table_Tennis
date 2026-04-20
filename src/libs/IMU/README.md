@@ -30,9 +30,8 @@ DLPF                : enabled
 The ICM-20948 asserts a rising edge on the INT pin when a new sample is ready. This is wired to GPIO 27 on the Raspberry Pi.
 
 ## Hardware Assembly
-
-![Hardware setup on bat](../../images/IMG_5714.jpg)
-![Close-up pin connections](../../images/IMG_6629.JPG)
+![Hardware setup on bat](../../../images/IMG_5714.jpg)
+![Close-up pin connections](../../../images/IMG_6629.JPG)
 
 ## Acknowledgements
 
