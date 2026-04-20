@@ -151,7 +151,7 @@ void IMUReader::worker()
                 if (gpiod_edge_event_get_event_type(event) == GPIOD_EDGE_EVENT_RISING_EDGE) {
                     icm20948::IMUSample sample{};
 
-                    /// FIX: hold the shared I2C bus mutex for the full read_sample()
+                    /// hold the shared I2C bus mutex for the full read_sample()
                     /// call so the ADS1115 thread cannot interleave its own
                     /// ioctl(I2C_SLAVE) + read between our register writes.
                     bool ok = false;
@@ -159,7 +159,7 @@ void IMUReader::worker()
                         std::lock_guard<std::mutex> lk(i2c1_mutex());
                         ok = imu_.read_sample(sample);
 
-                        // Optional DRDY status check after the sample read.
+                        /// Optional DRDY status check after the sample read.
 
                         if (ok) {
                         imu_.check_DRDY_INT();
