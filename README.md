@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/HAPTIC.png" alt="Haptic Ping Logo" width="250"/>
+  <img src="images/LOGO_EXT.jpeg" alt="Haptic Ping Logo" width="250"/>
 </p>
 
 # Haptic Ping
@@ -24,7 +24,7 @@ University of Glasgow, 2026
 | ERM Vibration Motor | 1× | [The Pi Hut](https://thepihut.com/products/vibrating-mini-motor-disc) |
 | ADS1115 ADC | 1× | [The Pi Hut](https://thepihut.com/products/adafruit-ads1115-16-bit-adc) |
 | Piezoelectric Sensor | 1× | [RS Online](https://uk.rs-online.com/web/p/piezo-buzzers/8377840) |
-| LEDs (green) | 2× | — |
+| LEDs | 2× | — |
 | Table Tennis Bat | 1× | — |
 | AA batteries | 3× | — |
 ---
@@ -105,8 +105,9 @@ This can be adjusted in the main.cpp.
 
 Haptic Ping runs on Linux (Raspberry Pi OS) and is not compatible with Windows.  
 Prior to installing the required libraries, the system package list should be updated using:  
-
+```bash
 sudo apt update 
+```
 
 ### Enable I2C
 ```bash
