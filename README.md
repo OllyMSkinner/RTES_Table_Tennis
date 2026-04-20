@@ -24,7 +24,7 @@ University of Glasgow, 2026
 | ERM Vibration Motor | 1× | [The Pi Hut](https://thepihut.com/products/vibrating-mini-motor-disc) |
 | ADS1115 ADC | 1× | [The Pi Hut](https://thepihut.com/products/adafruit-ads1115-16-bit-adc) |
 | Piezoelectric Sensor | 1× | [RS Online](https://uk.rs-online.com/web/p/piezo-buzzers/8377840) |
-| LEDs (green) | 2× | — |
+| LEDs | 2× | — |
 | Table Tennis Bat | 1× | — |
 | AA batteries | 3× | — |
 ---
@@ -91,10 +91,10 @@ The code is entirely event-driven with no polling loops:
 The sampling frequency is calculated by 
 - **Accelerometer**: 1.125 kHz/(1+ sample_rate_div)
 - **Gyrometer**: 1.1kHz/(1+ sample_rate_div)
-The maximum frequency for accelerometer is therefore 1.125 kHz and gyrometer is 1.1kHz. The maximum latency found for the accelerometer and gyrometer to work is at 18.75 Hz (sample_rate_div = 59).
+The maximum frequency for accelerometer is therefore 1.125 kHz and gyrometer is 1.1kHz. The maximum latency found for the accelerometer and gyrometer to work is at 18.75 Hz (sample_rate_div = 59) in order to ensure the lowest power is used while running.
 
 ### Piezo - ADS1115
-The available sample rate are 8Hz, 16Hz, 32Hz, 64Hz, 128Hz, 250Hz, 475Hz, and 860Hz. The maximum latency for the ADS1115 is at _________.
+The available sample rate are 8Hz, 16Hz, 32Hz, 64Hz, 128Hz, 250Hz, 475Hz, and 860Hz. The maximum latency for the ADS1115 is at 860 Hz.
 
 This can be adjusted in the main.cpp. 
 
