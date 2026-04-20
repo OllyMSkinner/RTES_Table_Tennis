@@ -214,6 +214,15 @@ RTES_Table_Tennis/
 | Wiktoria Smolarek | 2619869S |
 
 ---
+## Individual Contributions
+
+Despina Charalambous: Motor code, soldering
+Najaree Janjerdsak: Latency test, IMU math code, soldering
+Natalia McCoy: IMU code, main.cpp
+Olivia Skinner: piezo code
+Wiktoria Smolarek: piezo code
+
+---
 
 ## Media
 
@@ -224,7 +233,7 @@ RTES_Table_Tennis/
 
 ## License
 
-This project is licensed under the GPL License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ---
 
