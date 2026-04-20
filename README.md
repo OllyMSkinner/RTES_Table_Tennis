@@ -18,15 +18,15 @@ University of Glasgow, 2026
 ## Hardware Components
 
 | Component | Quantity | Link | Cost per unit |
-|---|---|---|
+|---|---|---|---|
 | Raspberry Pi 5 | 1× | [RS Online](https://uk.rs-online.com/web/p/raspberry-pi/0219255/) | ~£161.53 |
 | ICM-20948 IMU | 1× | [RS Online](https://uk.rs-online.com/web/p/sensor-development-tools/2836590) | ~£24.28 |
 | ERM Vibration Motor | 1× | [The Pi Hut](https://thepihut.com/products/vibrating-mini-motor-disc) | ~£1.70 |
 | ADS1115 ADC | 1× | [The Pi Hut](https://thepihut.com/products/adafruit-ads1115-16-bit-adc) | ~£14.40 |
 | Piezoelectric Sensor | 1× | [RS Online](https://uk.rs-online.com/web/p/piezo-buzzers/8377840) | ~£2.50 |
 | LEDs | 2× | — | ~£0.45 |
-| Table Tennis Bat | 1× | — | ~£70 |
-| AA batteries | 3× | — | ~0.61 |
+
+
 ---
 
 ## GPIO Pin Assignments
@@ -250,4 +250,6 @@ This project is licensed under the GPL License — see the [LICENSE](LICENSE) fi
 - [Google Test](https://github.com/google/googletest)
 - University of Glasgow ENG 5220 teaching team  
 
-We would like to thank the lecturers for the course Real time Embedded Systems, Bernd Porr and Chongfeng Wei, for all their help. We would also like to expresss our gratitude to Thomas O'Hara for all his guidance and support.
+We would like to thank the lecturers for the course Real time Embedded Systems, Bernd Porr and Chongfeng Wei, for all their help. We would also like to expresss our gratitude to Thomas O'Hara for all his guidance and support.  
+
+This project used AI tools, including Claude (Anthropic), to assist with debugging, documentation, and refactoring. All suggestions were reviewed and validated by the development team, who retain full responsibility for the design decisions and final codebase.
