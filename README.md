@@ -17,16 +17,16 @@ University of Glasgow, 2026
 
 ## Hardware Components
 
-| Component | Quantity | Link |
+| Component | Quantity | Link | Cost per unit |
 |---|---|---|
-| Raspberry Pi 5 | 1× | [RS Online](https://uk.rs-online.com/web/p/raspberry-pi/0219255/) |
-| ICM-20948 IMU | 1× | [RS Online](https://uk.rs-online.com/web/p/sensor-development-tools/2836590) |
-| ERM Vibration Motor | 1× | [The Pi Hut](https://thepihut.com/products/vibrating-mini-motor-disc) |
-| ADS1115 ADC | 1× | [The Pi Hut](https://thepihut.com/products/adafruit-ads1115-16-bit-adc) |
-| Piezoelectric Sensor | 1× | [RS Online](https://uk.rs-online.com/web/p/piezo-buzzers/8377840) |
-| LEDs | 2× | — |
-| Table Tennis Bat | 1× | — |
-| AA batteries | 3× | — |
+| Raspberry Pi 5 | 1× | [RS Online](https://uk.rs-online.com/web/p/raspberry-pi/0219255/) | ~£161.53 |
+| ICM-20948 IMU | 1× | [RS Online](https://uk.rs-online.com/web/p/sensor-development-tools/2836590) | ~£24.28 |
+| ERM Vibration Motor | 1× | [The Pi Hut](https://thepihut.com/products/vibrating-mini-motor-disc) | ~£1.70 |
+| ADS1115 ADC | 1× | [The Pi Hut](https://thepihut.com/products/adafruit-ads1115-16-bit-adc) | ~£14.40 |
+| Piezoelectric Sensor | 1× | [RS Online](https://uk.rs-online.com/web/p/piezo-buzzers/8377840) | ~£2.50 |
+| LEDs | 2× | — | ~£0.45 |
+| Table Tennis Bat | 1× | — | ~£70 |
+| AA batteries | 3× | — | ~0.61 |
 ---
 
 ## GPIO Pin Assignments
@@ -242,7 +242,7 @@ Wiktoria Smolarek: piezo code, circuit design, organisation/clean-up
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL License — see the [LICENSE](LICENSE) file for details.
 
 ---
 
