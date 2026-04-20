@@ -20,4 +20,7 @@
 | Both | 330&Omega; Resistor |
 
 
+## Hardware Assembly
+
+
 ## Acknowledgements 
