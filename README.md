@@ -127,15 +127,15 @@ sudo apt install -y libgpiod-dev libgpiod2 libi2c-dev i2c-tools libyaml-cpp-dev 
 ## Libraries
 
 ### libgpiod
-- [libgpiod](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/)
+- [libgpiod](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/)  
 Used for all GPIO control on the Raspberry Pi via the Linux character device interface. In this project it is used in three places: the IMU reader configures the data-ready line (GPIO 27) as a rising-edge input and uses `epoll` on the GPIO file descriptor to wake the reader thread; the ADS1115 driver configures the ALERT/RDY line (GPIO 26) as a rising-edge input and blocks on `wait_edge_events`; and the LED controllers and PWM driver configure output lines to drive the LEDs and ERM motor.
 
 ### PWM
-This library was developed by the project group.  
+- This library was developed by the project group.  
 RPI_PWM is a software PWM library for the Raspberry Pi that drives GPIO 18 at 30 Hz using a dedicated worker thread and timerfd-based waits. It exposes a simple setDutyCycle() interface, clamps output to a maximum of 80% to reduce back-EMF spikes, and cleanly acquires and releases the GPIO line through libgpiod. 
 
 ### yaml-cpp
-- [yaml-cpp](https://github.com/jbeder/yaml-cpp)
+- [yaml-cpp](https://github.com/jbeder/yaml-cpp)  
 Used by the ICM-20948 driver settings class to load sensor configuration parameters — accelerometer scale, gyroscope scale, sample rate divider, and digital low-pass filter settings — from a YAML file. This allows sensor tuning without recompiling.
 
 ---
