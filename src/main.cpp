@@ -43,7 +43,15 @@ int main()
         imuLed.set(upright);
     });
 
-    IMUReader reader(I2C_BUS);
+    /// Latency test for IMU
+    int16_t sample_rate_div = 0;        /// change this to test for latency
+    
+    icm20948::settings imuSettings(
+        icm20948::accel_settings(sample_rate_div),                          /// 12-bit divider
+        icm20948::gyro_settings(static_cast<uint8_t>(sample_rate_div))      /// 8-bit divider
+    );
+
+    IMUReader reader(I2C_BUS, ICM20948_I2C_ADDR, "/dev/gpiochip0", 27, imuSettings);
 
     if (!reader.init()) {
         pwm.setDutyCycle(0.0f);
@@ -81,8 +89,17 @@ int main()
         piezoDetector.processSample(v);
     });
 
+    // try {
+    //     ads1115rpi.start();
+    // } catch (const std::exception&) {}
+
+    /// Latency test for Piezo
+    ADS1115settings piezoSettings;
+    piezoSettings.samplingRate = ADS1115settings::FS128HZ;
+    // available rates: 8, 16, 32, 64, 128 (default), 250, 475, 860 
+
     try {
-        ads1115rpi.start();
+        ads1115rpi.start(piezoSettings);
     } catch (const std::exception&) {}
 
     sigset_t mask;
