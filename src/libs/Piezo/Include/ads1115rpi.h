@@ -6,7 +6,6 @@
 *
 * SOLID principles:
 *   S -   The settings struct is responsible only for configuration data, while the
-*         ADS1115rpi class is responsible for managing ADC communication and sample
 *         delivery.
 *   O -   Client behaviour can be extended through the callback interface without
 *         changing the ADC reading logic itself.
