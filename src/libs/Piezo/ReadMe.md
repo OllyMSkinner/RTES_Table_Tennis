@@ -1,16 +1,26 @@
 ## ADS1115 Pin connection list:
-    * VDD - Pin 1
-    * SDA - Pin 3
-    * SCL - Pin 5
-    * A0 - Pin 11
-    * ADDR - GND
-    * GND - GND
-    * ALRT - positive piezo
+
+| ADC Connections | GPIO Pin |
+|---|---|
+| VDD | 3.3v (Physical Pin 17) |
+| SDA | GPIO 2 (Physical Pin 3) |
+| SCL | GPIO 3 (Physical Pin 5) |
+| A0 | Positive Piezo |
+| ADDR | GND (Physical Pin 6) |
+| GND | GND (Physical Pin 6) |
+| ALRT | GPIO 26 (Physical Pin 37) |
+
 
 ## Piezo pin connection 
     * Negative - GND
     * Positive - ALRT
     * Both - connect to resistor 
+| Piezo | Connections |
+|---|---|
+| Positive | A0 |
+| Negative | GND |
+| Both | 330&omega; Resistor |
+
     
 
 ![WhatsApp Image 2026-03-04 at 10 28 51](https://github.com/user-attachments/assets/49c670d4-f157-440a-8665-079937c49ddb)
