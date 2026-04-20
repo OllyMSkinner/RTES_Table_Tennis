@@ -183,7 +183,7 @@ namespace icm20948
    /// Set a kernel-side I2C timeout.
         ::ioctl(_i2c_fd, I2C_TIMEOUT, 20);
         
-        // Bind this fd to the IMU slave address.
+        /// Bind this fd to the IMU slave address.
         if (::ioctl(_i2c_fd, I2C_SLAVE, i2c_address) < 0) {
             ::close(_i2c_fd);
             _i2c_fd = -1;
@@ -191,7 +191,7 @@ namespace icm20948
                                      std::strerror(errno));
         }
 
-                // Zero cached sensor outputs.
+                /// Zero cached sensor outputs.
         accel[0] = accel[1] = accel[2] = 0.0f;
         gyro[0]  = gyro[1]  = gyro[2]  = 0.0f;
         magn[0]  = magn[1]  = magn[2]  = 0.0f;
@@ -409,7 +409,7 @@ namespace icm20948
 
     bool ICM20948_I2C::_set_gyro_range_dlpf()
     {
-        // Pack gyro DLPF enable, range, and cutoff into CONFIG_1.
+        /// Pack gyro DLPF enable, range, and cutoff into CONFIG_1.
         uint8_t byte = 0;
         byte |= static_cast<uint8_t>(!!static_cast<uint8_t>(settings.gyro.dlpf_enable));
         byte |= static_cast<uint8_t>(static_cast<uint8_t>(settings.gyro.scale) << 1);
@@ -438,7 +438,7 @@ namespace icm20948
 
     bool ICM20948_I2C::_magnetometer_enable()
     {
-        // Enable the chip's internal I2C master path for magnetometer access.
+        /// Enable the chip's internal I2C master path for magnetometer access.
         bool ok = _write_bit(ICM20948_INT_PIN_CFG_BANK,
                              ICM20948_INT_PIN_CFG_ADDR, 1, false);
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
@@ -535,7 +535,7 @@ namespace icm20948
     bool ICM20948_I2C::_write_bit(uint8_t bank, uint8_t reg,
                                   uint8_t bit_pos, bool bit)
     {
-        // Read-modify-write a single register bit.
+        /// Read-modify-write a single register bit.
         uint8_t existing = 0;
         if (!_read_byte(bank, reg, existing)) return false;
 
@@ -550,7 +550,7 @@ namespace icm20948
     bool ICM20948_I2C::_read_bit(uint8_t bank, uint8_t reg,
                                  uint8_t bit_pos, bool& bit)
     {
-        // Extract one bit from a register.
+        /// Extract one bit from a register.
         uint8_t existing = 0;
         if (!_read_byte(bank, reg, existing)) return false;
         bit = ((existing >> bit_pos) & 1U) != 0U;
@@ -560,7 +560,7 @@ namespace icm20948
     bool ICM20948_I2C::_read_block_bytes(uint8_t bank, uint8_t start_reg,
                                          uint8_t* bytes, int length)
     {
-        // Sequential block read starting at start_reg.
+        /// Sequential block read starting at start_reg.
         if (!_set_bank(bank)) return false;
 
         struct i2c_msg msgs[2];
@@ -585,7 +585,7 @@ namespace icm20948
 
     bool ICM20948_I2C::_write_mag_byte(uint8_t mag_reg, uint8_t byte)
     {
-        // Route a write to the external magnetometer via SLV4.
+        /// Route a write to the external magnetometer via SLV4.
         bool ok = true;
         ok &= _write_byte(ICM20948_I2C_SLV4_ADDR_BANK,
                           ICM20948_I2C_SLV4_ADDR_ADDR, ICM20948_MAGN_I2C_ADDR);
@@ -596,7 +596,7 @@ namespace icm20948
         ok &= _write_byte(ICM20948_I2C_SLV4_CTRL_BANK,
                           ICM20948_I2C_SLV4_CTRL_ADDR, 0x80);
 
-        // Poll for completion/ACK.
+        /// Poll for completion/ACK.
         bool done = false;
         for (int i = 0; i < 20; ++i) {
             _read_bit(ICM20948_I2C_MST_STATUS_BANK,
@@ -611,7 +611,7 @@ namespace icm20948
 
     bool ICM20948_I2C::_read_mag_byte(uint8_t mag_reg, uint8_t& byte)
     {
-        // Route a read from the external magnetometer via SLV4.
+        /// Route a read from the external magnetometer via SLV4.
         bool ok = true;
         ok &= _write_byte(ICM20948_I2C_SLV4_ADDR_BANK,
                           ICM20948_I2C_SLV4_ADDR_ADDR,
@@ -621,7 +621,7 @@ namespace icm20948
         ok &= _write_byte(ICM20948_I2C_SLV4_CTRL_BANK,
                           ICM20948_I2C_SLV4_CTRL_ADDR, 0x80);
 
-        // Poll for completion/ACK.
+        /// Poll for completion/ACK.
         bool done = false;
         for (int i = 0; i < 20; ++i) {
             _read_bit(ICM20948_I2C_MST_STATUS_BANK,
