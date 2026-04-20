@@ -24,7 +24,7 @@ University of Glasgow, 2026
 | ERM Vibration Motor | 1× | [The Pi Hut](https://thepihut.com/products/vibrating-mini-motor-disc) |
 | ADS1115 ADC | 1× | [The Pi Hut](https://thepihut.com/products/adafruit-ads1115-16-bit-adc) |
 | Piezoelectric Sensor | 1× | [RS Online](https://uk.rs-online.com/web/p/piezo-buzzers/8377840) |
-| LEDs | 2× | — |
+| LEDs (green) | 2× | — |
 | Table Tennis Bat | 1× | — |
 | AA batteries | 3× | — |
 ---
@@ -53,13 +53,13 @@ IMU I2C address: `0x69`, ADS1115 I2C address: `0x48`, I2C bus: `1`
 
 ## Hardware Assembly
 
-- The IMU was mounted at the distal end of the bat using velcro (see FIGURE XYZ).
-- The matrix board shown in the Wiring Diagram was affixed to one side of the bat, as shown in the image below, using velcro.
-- The piezolelectric sensor was attached to the bat at the area that ensures appropriate index finger placement and therefore grip.
+- The IMU was mounted at the distal end of the bat using velcro (see below).
+- The matrix board shown in the Wiring Diagram was affixed to one face of the bat using velcro.
+- The piezolelectric sensor was attached to the bat at the area that ensures appropriate index finger placement for the user and therefore grip.
 - Extended wiring (~1 metre for ease of use) was created by splicing female-to-female jumper cables with standard wire via soldering. Heat-shrink tubing was applied over each joint for insulation and mechanical reinforcement.
 - The LED outputs were soldered to matrix boards with wire lengths tailored to suit the user’s preferred placement and positioned on a secondary station in front of the user to ensure clear visibility.
 - The battery holder wire lenght was also extended to ~1 metre for ease of use.
-
+![IMU LOCATION](images/IMU.jpeg)
 ---
 
 ## How It Works
@@ -91,10 +91,10 @@ The code is entirely event-driven with no polling loops:
 The sampling frequency is calculated by 
 - **Accelerometer**: 1.125 kHz/(1+ sample_rate_div)
 - **Gyrometer**: 1.1kHz/(1+ sample_rate_div)
-The maximum frequency for accelerometer is therefore 1.125 kHz and gyrometer is 1.1kHz. The maximum latency found for the accelerometer and gyrometer to work is at 18.75 Hz (sample_rate_div = 59) in order to ensure the lowest power is used while running.
+The maximum frequency for accelerometer is therefore 1.125 kHz and gyrometer is 1.1kHz. The maximum latency found for the accelerometer and gyrometer to work is at 18.75 Hz (sample_rate_div = 59).
 
 ### Piezo - ADS1115
-The available sample rate are 8Hz, 16Hz, 32Hz, 64Hz, 128Hz, 250Hz, 475Hz, and 860Hz. The maximum latency for the ADS1115 is at 860 Hz.
+The available sample rate are 8Hz, 16Hz, 32Hz, 64Hz, 128Hz, 250Hz, 475Hz, and 860Hz. The maximum latency for the ADS1115 is at _________.
 
 This can be adjusted in the main.cpp. 
 
