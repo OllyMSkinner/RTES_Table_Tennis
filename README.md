@@ -10,8 +10,9 @@ Description of Piezo and ADS1115 code:
 =======
 # HapticPing 
 
-Haptic Ping combines table tennis shadow practice with haptic feedback to simulate a training expeerinece that mroe closely resembles real play. Shadow practice is a widely used technique where table tennis players practice their strokes and form, but in the absence of a coach it can be difficult for players to know whether their position and movements are correct. Therefore, our prototype addresses this limitation by providing real-time haptic feedback, allowing players to practice effectively without the need for a coach or any additional table tennis equipment.  
-Haptic Ping uses an inertial measurement unit (IMU), eccentric rotating mass (ERM) and a piezoelectric sensor to monitor motion, detect impact, and deliver responsive feedback to the user.  
+Haptic Ping combines table tennis shadow practice with haptic feedback to simulate a training expeerinece that mroe closely resembles real play. Shadow practice is a widely used technique where table tennis players practice their strokes and form, but in the absence of a coach it can be difficult for players to know whether their position and movements are correct.  
+Our prototype addresses this limitation by providing real-time haptic feedback, allowing players to practice effectively without the need for a coach or any additional table tennis equipment.  
+Haptic Ping integrates an inertial measurement unit (IMU) and a piezo sensor mounted on the bat to monitor both orientation and physical interaction. The piezo sensor detects correct grip and handling, which triggers a light emitting diode (LED) to light up, hence confirming proper finger placement. Once the correct starting position is established, a second LED is illuminated to indicate that the system is ready for swing analysis. The IMU then tracks the bat’s motion to analyse swing patterns in real time. When a correct swing is detected, the system provides immediate haptic feedback through the vibration of an eccentric rotating motor (ERM), guiding the user toward consistent and effective technique.  
 
 A project from ENG 5220 Real-Time Embedded Programming  
 University of Glasgow, 2026
@@ -32,6 +33,12 @@ The following components were used to build the Haptic Ping prototype:
 
 * Describe any prerequisites, libraries, OS version, etc., needed before installing program.
 * ex. Windows 10
+
+* This project is designed to operate on a Linux-based platform, specifically a Raspberry Pi. The recommended operating system is Raspberry Pi OS, as it provides native support for the required system of libraries and hardware interfaces. These dependencies are not compatible with Windows environments. 
+
+Prior to installing the required libraries, the system package list should be updated using: 
+
+sudo apt update 
 
 ### Installing
 The wiring guide for this project is illustrated below:  
