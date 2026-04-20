@@ -1,96 +1,170 @@
-<<<<<<< HEAD
-# RTES_Table_Tennis
-Table tennis racket performance analyser for Real Time Embedded Systems
+<p align="center">
+  <img src="images/HAPTIC.png" alt="Haptic Ping Logo" width="250"/>
+</p>
 
-Hello squirrel friends 
+# Haptic Ping
 
-Description of AMU coompondnt code:
+Haptic Ping combines table tennis shadow practice with haptic feedback to simulate a training experience that more closely resembles real play. Shadow practice is a widely used technique where table tennis players practice their strokes and form, but in the absence of a coach it can be difficult for players to know whether their position and movements are correct.
 
-Description of Piezo and ADS1115 code:
-=======
-# HapticPing 
+Our prototype addresses this limitation by providing real-time haptic feedback, allowing players to practice effectively without the need for a coach or any additional table tennis equipment.
 
-Haptic Ping combines table tennis shadow practice with haptic feedback to simulate a training expeerinece that mroe closely resembles real play. Shadow practice is a widely used technique where table tennis players practice their strokes and form, but in the absence of a coach it can be difficult for players to know whether their position and movements are correct.  
-Our prototype addresses this limitation by providing real-time haptic feedback, allowing players to practice effectively without the need for a coach or any additional table tennis equipment.  
-Haptic Ping integrates an inertial measurement unit (IMU) and a piezo sensor mounted on the bat to monitor both orientation and physical interaction. The piezo sensor detects correct grip and handling, which triggers a light emitting diode (LED) to light up, hence confirming proper finger placement. Once the correct starting position is established, a second LED is illuminated to indicate that the system is ready for swing analysis. The IMU then tracks the bat’s motion to analyse swing patterns in real time. When a correct swing is detected, the system provides immediate haptic feedback through the vibration of an eccentric rotating motor (ERM), guiding the user toward consistent and effective technique.  
+Haptic Ping integrates an inertial measurement unit (IMU) and a piezo sensor mounted on the bat to monitor both orientation and physical interaction. The piezo sensor detects correct grip and handling, which triggers an LED to confirm proper finger placement. Once the correct starting position is established, a second LED illuminates to indicate the system is ready for swing analysis. The IMU then tracks the bat's motion to analyse swing patterns in real time. When a correct swing is detected, the system provides immediate haptic feedback through an eccentric rotating motor (ERM).
 
-A project from ENG 5220 Real-Time Embedded Programming  
+A project from ENG 5220 Real-Time Embedded Programming
 University of Glasgow, 2026
 
-## Description
+---
 
-An in-depth paragraph about your project and overview of use.
+## Hardware Components
 
-## Getting Started
-The following components were used to build the Haptic Ping prototype:  
-[Raspberry Pi](https://uk.rs-online.com/web/p/raspberry-pi/0219255/) (1x)  
-[IMU](https://uk.rs-online.com/web/p/sensor-development-tools/2836590) (1x)  
-[ERM](https://thepihut.com/products/vibrating-mini-motor-disc) (1x)  
-[ADS 1115](https://thepihut.com/products/adafruit-drv2605l-haptic-motor-controller?srsltid=AfmBOor9hL8GBIkbBknmkgmD5isfLFcB0laND6bchnF5WGKlw_JkHqm7) (1x)  
-[Piezoelectric sensor](https://uk.rs-online.com/web/p/piezo-buzzers/8377840?cm_mmc=UK-PLA-DS3A-_-google-_-CSS_UK_EN_PMAX_RS+PRO-_--_-8377840&matchtype=&&gclsrc=aw.ds&gad_source=1&gad_campaignid=20690300296&gbraid=0AAAAADkeWNM9CLJAnbNVKQPojF0eghgD3&gclid=Cj0KCQjwy_fOBhC6ARIsAHKFB79oq-QJd7hoZ1sjtoHpvGlvcI1X8whJQtJW4mBjeF-B9KxrcIIMLTAaAoeEEALw_wcB) (1x)  
+| Component | Quantity | Link |
+|---|---|---|
+| Raspberry Pi 5 | 1× | [RS Online](https://uk.rs-online.com/web/p/raspberry-pi/0219255/) |
+| ICM-20948 IMU | 1× | [RS Online](https://uk.rs-online.com/web/p/sensor-development-tools/2836590) |
+| ERM Vibration Motor | 1× | [The Pi Hut](https://thepihut.com/products/vibrating-mini-motor-disc) |
+| ADS1115 ADC | 1× | [The Pi Hut](https://thepihut.com/products/adafruit-ads1115-16-bit-adc) |
+| Piezoelectric Sensor | 1× | [RS Online](https://uk.rs-online.com/web/p/piezo-buzzers/8377840) |
+| LEDs (green) | 2× | — |
+| Table Tennis Bat | 1× | — |
 
-### Dependencies
+---
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+## GPIO Pin Assignments
 
-* This project is designed to operate on a Linux-based platform, specifically a Raspberry Pi. The recommended operating system is Raspberry Pi OS, as it provides native support for the required system of libraries and hardware interfaces. These dependencies are not compatible with Windows environments. 
+| Signal | GPIO Pin |
+|---|---|
+| PWM (ERM motor) | GPIO 18 |
+| IMU LED | GPIO 22 |
+| Piezo LED | GPIO 25 |
+| ADS1115 DRDY interrupt | GPIO 26 |
+| IMU data-ready interrupt | GPIO 27 |
+| I2C SDA | GPIO 2 |
+| I2C SCL | GPIO 3 |
 
-Prior to installing the required libraries, the system package list should be updated using: 
+IMU I2C address: `0x69`, ADS1115 I2C address: `0x48`, I2C bus: `1`
 
-sudo apt update 
+---
 
-### Installing
-The wiring guide for this project is illustrated below:  
-![Connection](/images/Diagram_wLabel2.png)
+## Wiring Diagram
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+![Wiring Diagram](images/Diagram_wLabel2.png)
+
+---
+
+## Hardware Assembly
 
 
-### Executing program
 
-* How to run the program
-* Step-by-step bullets
+## Prerequisites
+
+This project runs on Linux (Raspberry Pi OS). Not compatible with Windows.
+
+### Enable I2C
+```bash
+sudo raspi-config
+# Navigate to: Interface Options → I2C → Enable
 ```
-code blocks for commands
+
+### Install dependencies
+```bash
+sudo apt update
+sudo apt install -y libgpiod-dev libgpiod2 libi2c-dev i2c-tools libyaml-cpp-dev cmake build-essential
 ```
 
-## Help
+---
 
-Any advise for common problems or issues.
+## Compilation from Source
+
+```bash
+git clone <repo-url>
+cd RTES_Table_Tennis
+
+# Build main application
+cmake -S src -B build
+cmake --build build -j$(nproc)
 ```
-command to run if program contains helper info
+
+---
+
+## Usage
+
+```bash
+sudo ./build/rtes_main
 ```
+
+The system will:
+1. Wait for correct grip detected by piezo sensor → **Piezo LED on**
+2. Wait for correct bat starting position detected by IMU → **IMU LED on**
+3. Analyse swing in real time
+4. Vibrate ERM motor on correct swing detection,one short buzz indicating low level, 2 pulse buzzes for medium level, and one strong buzz for High level, in terms of speed
+
+Press `Ctrl+C` or `SIGHUP` to stop cleanly.
+
+---
+
+## Running Tests
+
+```bash
+cmake -S src -B build -DBUILD_TESTS=ON
+cmake --build build -j$(nproc)
+ctest --test-dir build --output-on-failure
+```
+
+31 unit tests across 6 test suites covering:
+- `PiezoEventDetector` — EMA filter, press/release thresholds
+- `PositionDetector` — stability counter, orientation detection
+- `SwingCalibrator` — bias averaging, recalibration
+- `SwingDetector` — level classification, threshold boundaries
+- `SwingFeedback` — PWM ramp patterns, reset callback, timeout
+- `SwingProcessor` — gate logic, force/position interaction
+
+---
+
+## Project Structure
+RTES_Table_Tennis/
+├── src/
+│   ├── main.cpp
+│   ├── CMakeLists.txt
+│   └── libs/
+│       ├── IMU/          # ICM-20948 driver and threaded reader
+│       ├── IMU_math/     # Position detection, swing analysis, calibration
+│       ├── LEDs/         # GPIO-backed LED controllers
+│       ├── Motor/        # Software PWM and swing feedback patterns
+│       └── Piezo/        # ADS1115 ADC driver and event detector
+├── test/                 # GTest unit tests
+└── images/
+
+---
 
 ## Authors
-Despina Charalambous (2689332C)  
-Najaree Janjerdsak (2717383J)  
-Natalia McCoy (2661134M)  
-Olivia Skinner (2671612S)  
-Wiktoria Smolarek (2619869S)  
 
-<!-- ex. [@DomPizzie](https://twitter.com/dompizzie) -->
+| Name | Matric |
+|---|---|
+| Despina Charalambous | 2689332C |
+| Najaree Janjerdsak | 2717383J |
+| Natalia McCoy | 2661134M |
+| Olivia Skinner | 2671612S |
+| Wiktoria Smolarek | 2619869S |
+
+---
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+- **v1.0** — Final submission release
+- **v0.2** — Bug fixes and optimisations
+- **v0.1** — Initial release
 
-<!-- ## License
+---
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details -->
+## License
 
-## Acknowledgments
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+---
 
->>>>>>> Nano_swing
+## Acknowledgements
+
+- [libgpiod](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/)
+- [yaml-cpp](https://github.com/jbeder/yaml-cpp)
+- [Google Test](https://github.com/google/googletest)
+- University of Glasgow ENG 5220 teaching team
